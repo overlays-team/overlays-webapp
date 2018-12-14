@@ -48,8 +48,19 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-    render 'edit'
+      render 'edit'
     end
+  end
+
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_path
+
+    ##こちらも動く
+    ##redirect_to @article
   end
 
 
