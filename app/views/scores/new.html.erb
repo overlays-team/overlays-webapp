@@ -1,0 +1,17 @@
+<h1> new score</h1>
+
+<%= form_with scope: :score, url: scores_path, local: true do |form| %>
+  <p>
+    <%= form.label :score %><br>
+    <%= form.text_field :score %>
+  </p>
+
+  <p>
+    <%= form.label :player %><br>
+    <%= form.text_field :player %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
