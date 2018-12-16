@@ -27,7 +27,11 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  #実は、Railsは本番環境での動的な画像の表示(というかプリコンパイル)がデフォルトでオフになっています。
+  #画像を表示するために以下の記述をfalseからtrueに変更してください。（自分は31行目にありました）
+  #この記述により、assets以下のフォルダから動的にコンパイルしながらページを読み込みます。
+  #config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
