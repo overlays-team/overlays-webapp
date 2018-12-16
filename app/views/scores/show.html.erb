@@ -1,0 +1,13 @@
+
+<p>
+  <strong>score:</strong>
+  <%= @score.score %>
+</p>
+
+<p>
+  <strong>player:</strong>
+  <%= @score.player %>
+</p>
+
+<%= link_to 'Back', scores_path %>
+<%= link_to 'Edit', edit_score_path(@score) %>
