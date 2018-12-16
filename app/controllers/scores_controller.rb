@@ -3,6 +3,10 @@ class ScoresController < ApplicationController
   ##basic authentication
   #http_basic_authenticate_with name: "over", password: "laylay", except: [:index, :show]
 
+  ##don't check AuthenticityToken
+  skip_before_action :verify_authenticity_token
+
+
   ## GET /scores/new
   def new
     @score = Score.new
@@ -16,11 +20,22 @@ class ScoresController < ApplicationController
     ##association
     @score = Score.new(score_params)
 
+    if @score.save     ## if successed, save to db
 
-    if @score.save     ## save to db
-      redirect_to @score     ##redirect to score list
+      ##return normal html
+      #redirect_to @score     ##redirect to added score
+      ##or
+      #redirect_to score_path  ##score list
+
+      ##return json
+      render json: @score, status: :created, location: @score
     else
-      render "new"
+
+      ##return normal html
+      #render "new"
+
+      ##return json
+      render json: @score.errors, status: :unprocessable_entity
     end
 
   end
@@ -30,9 +45,25 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
   end
 
+
   def index
-    @scores = Score.all
+    ##return all
+    ##@scores = Score.all
+
+    ##return all, sorted
+    ##@scores = Score.order :score ##ascendent
+    @scores = Score.order("score DESC") ##descendent
+
+    ##or return json
+    #render json: @scores
   end
+
+  def index_debug
+    #@scores = Score.all
+
+    @scores = Score.order("score DESC")
+  end
+
 
   def edit
     @score = Score.find(params[:id])

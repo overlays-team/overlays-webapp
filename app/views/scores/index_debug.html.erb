@@ -1,0 +1,25 @@
+<h1>DEBUG MODE:</h1>
+<h1> score board</h1>
+
+
+<%= link_to 'new score', new_score_path %>
+
+<table>
+  <tr>
+    <th>score</th>
+    <th>player</th>
+    <th></th>
+  </tr>
+
+  <% @scores.each do |score| %>
+    <tr>
+      <td><%= score.player %></td>
+      <td><%= score.score %></td>
+
+      <td><%= link_to 'Show', score_path(score) %></td>
+      <td><%= link_to 'Edit', edit_score_path(score) %></td>
+      <td><%= link_to 'Destroy', score_path(score),
+                method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

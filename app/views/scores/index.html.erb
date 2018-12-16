@@ -1,7 +1,7 @@
 <h1>score board</h1>
 
 
-<%= link_to 'new score(DEBUG)', new_score_path %>
+<%= link_to 'add new score(DEBUG)', new_score_path %>
 
 <table>
   <tr>
@@ -12,12 +12,10 @@
 
   <% @scores.each do |score| %>
     <tr>
-      <td><%= score.score %></td>
-      <td><%= score.player %></td>
-      <td><%= link_to 'Show(DEBUG)', score_path(score) %></td>
-      <td><%= link_to 'Edit(DEBUG)', edit_score_path(score) %></td>
-      <td><%= link_to 'Destroy(DEBUG)', score_path(score),
-                method: :delete %></td>
+    <td><%= score.player %></td>
+    <td><%= score.score %></td>
+
+
     </tr>
   <% end %>
 </table>
