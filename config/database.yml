@@ -20,6 +20,11 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
+  #半角スペース２個分の空白を開ける
   <<: *default
-  database: db/production.sqlite3
+  #database: db/production.sqlite3 ##もともとの記述
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
