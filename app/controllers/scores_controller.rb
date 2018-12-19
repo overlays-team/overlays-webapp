@@ -84,7 +84,9 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
     @score.destroy
 
-    redirect_to scores_path
+    ##redirect_to scores_path ## original
+    redirect_to scores_debug_path
+
   end
 
   private
