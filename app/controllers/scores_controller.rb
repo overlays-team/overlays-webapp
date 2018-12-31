@@ -12,9 +12,6 @@ class ScoresController < ApplicationController
     @score = Score.new
   end
 
-#  def about
-#  end
-
 
   ## POST /scores
   def create
