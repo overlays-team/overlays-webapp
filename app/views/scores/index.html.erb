@@ -98,6 +98,7 @@
             <figure class="shadow">
                 <figcaption>
                     <table style="width:100%">
+
                         <tr class="margin-top">
                             <th style="width: 20%">
                                 <img class="left padding" src="images/crown_84px.png" alt="image der goldenen Krone"/>
@@ -107,45 +108,55 @@
                             <th><h2 class="left padding">1. Jimmy</h2></th>
                             <th><h2 class="right padding">1082</h2></th>
                             -->
-
-                            <th><h2 class="left padding">1. <%= @scores[0].player %> </h2></th>
-                            <th><h2 class="right padding">  <%= @scores[0].score %> </h2></th>
-
-
-
+                            <th><h2 class="left padding">1. <%= @scores[0].player %></h2></th>
+                            <th><h2 class="right padding"><%= @scores[0].score %></h2></th>
                         </tr>
+
                         <tr>
                             <th>
                                 <img class="left padding" src="images/silver_crown_84.png" alt="image der silbernen Krone"/>
                             </th>
-                            <td><h2 class="left padding">2. Jill</h2></td>
-                            <td><h2 class="right padding">1061</h2></td>
+                            <td><h2 class="left padding">2. <%= @scores[1].player %></h2></td>
+                            <td><h2 class="right padding"><%= @scores[1].score %></h2></td>
                         </tr>
                         <tr>
                             <th>
                                 <img class="left padding" src="images/bronze_crown_84px.png" alt="image der goldenen Krone"/>
                             </th>
-                            <td><h2 class="left padding">3. Eve</h2></td>
-                            <td><h2 class="right padding">1001</h2></td>
+                            <td><h2 class="left padding">3. <%= @scores[2].player %></h2></td>
+                            <td><h2 class="right padding"><%= @scores[2].score %></h2></td>
                         </tr>
                     </table>
                     <hr class="separatorDark">
                     <table style="width:100%">
+
+                    <% @scores[3..-1].each_with_index do |score, i| %>
+                      <tr>
+                          <th><h4 class="left padding "><%= i+4 %>. <%= score.player %></h4></th>
+                          <th></th>
+                          <th><h4 class="right padding"><%= score.score %></h4></th>
+                      </tr>
+                      <% end %>
+
+                      <!--
                         <tr>
-                            <th><h4 class="left padding ">4. Jimmy2</h4></th>
+                            <th><h4 class="left padding ">4. <%= @scores[3].player %></h4></th>
                             <th></th>
-                            <th><h4 class="right padding">888</h4></th>
+                            <th><h4 class="right padding"><%= @scores[3].score %></h4></th>
                         </tr>
                         <tr>
-                            <td><h4 class="left padding">5. Jill2</h4></td>
+                            <td><h4 class="left padding">5. <%= @scores[4].player %></h4></td>
                             <td></td>
-                            <td><h4 class="right padding">777</h4></td>
+                            <td><h4 class="right padding"><%= @scores[4].score %></h4></td>
                         </tr>
                         <tr>
-                            <td><h4 class="left padding">6. Eve2</h4></td>
+                            <td><h4 class="left padding">6. <%= @scores[5].player %></h4></td>
                             <td></td>
-                            <td><h4 class="right padding">555</h4></td>
+                            <td><h4 class="right padding"><%= @scores[5].score %></h4></td>
                         </tr>
+                        -->
+
+
                     </table>
                     <div class="ico animated">
 
