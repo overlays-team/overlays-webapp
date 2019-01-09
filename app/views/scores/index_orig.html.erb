@@ -1,0 +1,21 @@
+<h1>score board</h1>
+
+
+<%= link_to 'add new score(DEBUG)', new_score_path %>
+
+<table>
+  <tr>
+    <th>player</th>
+    <th>score</th>
+    <th></th>
+  </tr>
+
+  <% @scores.each do |score| %>
+    <tr>
+    <td><%= score.player %></td>
+    <td><%= score.score %></td>
+
+
+    </tr>
+  <% end %>
+</table>
