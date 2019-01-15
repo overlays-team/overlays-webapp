@@ -54,6 +54,21 @@ class ScoresController < ApplicationController
     ##@scores = Score.order :score ##ascendent
     @scores = Score.order("score DESC") ##descendent
 
+    ##sorted with updated_at DESC row, descendent
+    @scores_updated_at_desc = Score.order("updated_at DESC")
+
+    ##a = "abc"
+    ##@scores_updated_at_desc.put[a]
+
+    ##score_n_d = Score.order("updated_at DESC")
+    ##score_n_d.each_with_index do |s, i|
+    ##@scores.each_with_index do |s, i|
+    ##  if @scores_new_desc[i] == s then
+
+    ##  end
+    ##end
+
+
     ##or return json
     #render json: @scores
   end
