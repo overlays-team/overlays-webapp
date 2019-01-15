@@ -10,7 +10,7 @@
 				Table of Content
 ===================================================
 	#Mainstyles
-	#Content - Logo - Menus
+	#Content - Logo - Menus - Arrow
 	#Shadowstyles
 	#Placeholder
 	#Infoboxes
@@ -74,15 +74,13 @@ hr.separator2 {
 }
 
 /* ========================================
- 		CONTENT - LOGO - MENU
+ 		CONTENT - LOGO - MENU - ARROW
 ========================================== */
 
 
 #header {
 	background: #141414;
 	border-bottom: 4px solid #0fa1e0;
-	/* Mit gradient erstellt man in CSS3 einen Verlauf der im jeweiligen Browser angezeigt wird. In diesem Fall ist es
-	ein senkrechter Verlauf im Headbereich */
 	background: -moz-linear-gradient(top, #333333 0%, #141414 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #141414));
 	background: -webkit-linear-gradient(top, #333333 0%, #141414 100%);
@@ -118,13 +116,24 @@ hr.separator2 {
 	margin-top: -50%;
 }
 .margin-top {
-	margin-top: 50%;
+	margin-top: 15%;
+}
+.margin-left {
+	margin-left: 2%;
 }
 .padding {
 	padding: 5% 5% 0% 5%;
 }
 .padding-top {
-	padding-top: 5%;
+	padding-top: 8%;
+}
+
+.padding-left {
+	padding-left: 40%;
+}
+
+tr:first-child {
+	padding-top: 1%;
 }
 
 
@@ -305,15 +314,75 @@ hr.separator2 {
 	}
 }
 
+/******************* ARROW *******************/
+
+.downArrow{
+	bottom: 45%;
+	left: 50%;
+}
+.bounce {
+	-moz-animation: bounce 3s infinite;
+	-webkit-animation: bounce 3s infinite;
+	animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		-moz-transform: translateY(0);
+		transform: translateY(0);
+	}
+	40% {
+		-moz-transform: translateY(-30px);
+		transform: translateY(-30px);
+	}
+	60% {
+		-moz-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		transform: translateY(-30px);
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	40% {
+		-moz-transform: translateY(-30px);
+		-ms-transform: translateY(-30px);
+		-webkit-transform: translateY(-30px);
+		transform: translateY(-30px);
+	}
+	60% {
+		-moz-transform: translateY(-15px);
+		-ms-transform: translateY(-15px);
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+
 /* ===============================
  		SHADOW STYLES
 ================================ */
 
 .shadow {
 	position: relative;
-	-moz-box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
-	box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 15px 15px 12px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 15px 15px 12px rgba(0, 0, 0, 0.6);
+	box-shadow: 15px 15px 12px rgba(0, 0, 0, 0.6);
 }
 .shadow:before, .shadow:after {
 	content: '';
@@ -474,7 +543,7 @@ span.red {
 }
 p.copyright {
 	font-size:11px;
-	color: #3cdbf1;
+	color: #cee6f1;
 	text-align:center;
 	text-shadow:none;
 	padding-top:10px;
@@ -590,7 +659,7 @@ form#contact_form input[type="submit"]:hover, input[type="reset"]:hover {
 
 /* Content Shortcodes */
 .one_half {
-	width: 48%;
+	width: 45%;
 }
 .one_third {
 	width: 30.66%;
@@ -599,7 +668,7 @@ form#contact_form input[type="submit"]:hover, input[type="reset"]:hover {
 	width: 65.33%;
 }
 .one_half, .one_third, .two_third {
-	margin-right: 4%;
+	margin-left: 5%;
 	margin-bottom: 10%;
 	float: left;
 }

@@ -23,7 +23,7 @@
 
     <!-- ======= Google Fonts ====== -->
 
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
 <!-- Ende Headbereich -->
@@ -97,70 +97,69 @@
         <div>
             <figure class="shadow">
                 <figcaption>
-                    <caption><h2 class="padding-top">Top Scores</h2></caption>
+                    <caption><h1 class="padding-top">TOP SCORES</h1></caption>
                     <hr class="separatorDark">
                     <table style="width:100%">
                         <tr>
                             <th>
-                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
+                                <img class="left padding" src="images/crown_84px.png" alt="image der goldenen Krone"/>
                             </th>
-                            <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
-                            <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
+                            <th><h2 class="left padding padding-bottom8"><%= @scores[0].player %></h2></th>
+                            <th><h2 class="right padding padding-bottom13"><%= @scores[0].score %></h2></th>
                         </tr>
                         <tr>
                             <th>
-                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
+                                <img class="left padding" src="images/silver_crown_84.png" alt="image der silbernen Krone"/>
                             </th>
-                            <td><h3 class="left padding padding-bottom8"><%= @scores[1].player %></h3></td>
-                            <td><h3 class="right padding padding-bottom13"><%= @scores[1].score %></h3></td>
+                            <td><h2 class="left padding padding-bottom8"><%= @scores[1].player %></h2></td>
+                            <td><h2 class="right padding padding-bottom13"><%= @scores[1].score %></h2></td>
                         </tr>
                         <tr>
                             <th>
-                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                                <img class="left padding" src="images/bronze_crown_84px.png" alt="image der bronzenen Krone"/>
                             </th>
-                            <td><h3 class="left padding padding-bottom8"><%= @scores[2].player %></h3></td>
-                            <td><h3 class="right padding padding-bottom13"><%= @scores[2].score %></h3></td>
+                            <td><h2 class="left padding padding-bottom8"><%= @scores[2].player %></h2></td>
+                            <td><h2 class="right padding padding-bottom13"><%= @scores[2].score %></h2></td>
                         </tr>
                     </table>
                     <hr class="separatorDark">
                     <details>
-                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
                         <table style="width:100%">
 
                           <% @scores[3..-1].each_with_index do |score, i| %>
-                          <tr>
-                            <th>
-                               <h3 class="left padding"><%= i+4 %>.</h3>
-                            </th>
-                            <th><h3 class="left padding padding-left"> <%= score.player %></h3></th>
-                            <th><h3 class="right padding"><%= score.score %></h3></th>
+                            <tr>
+                              <th>
+                                <h2 class="left padding"><%= i+4 %>.</h2>
+                              </th>
+                              <th><h2 class="left padding padding-left"> <%= score.player %></h2></th>
+                              <th><h2 class="right padding"><%= score.score %></h2></th>
                           </tr>
                           <% end %>
 
                           <!--
                           <tr>
                             <th>
-                               <h3 class="left padding">4.</h3>
+                               <h2 class="left padding">4.</h2>
                             </th>
-                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
-                            <th><h3 class="right padding">82</h3></th>
+                            <th><h2 class="left padding padding-left"> Jimmy</h2></th>
+                            <th><h2 class="right padding">82</h2></th>
                             </tr>
                             <tr>
                                 <th>
-                                   <h3 class="left padding">5.</h3>
+                                   <h2 class="left padding">5.</h2>
                                 </th>
-                                <td><h3 class="left padding padding-left">Jill</h3></td>
-                                <td><h3 class="right padding">61</h3></td>
+                                <td><h2 class="left padding padding-left">Jill</h2></td>
+                                <td><h2 class="right padding">61</h2></td>
                             </tr>
                             <tr>
                                 <th>
-                                    <h3 class="left padding">6.</h3>
+                                    <h2 class="left padding">6.</h2>
                                 </th>
-                                <td><h3 class="left padding padding-left"> Eve</h3></td>
-                                <td><h3 class="right padding">21</h3></td>
+                                <td><h2 class="left padding padding-left"> Eve</h2></td>
+                                <td><h2 class="right padding">21</h2></td>
                             </tr>
                             -->
-
                         </table>
                     </details>
                 </figcaption>
@@ -172,54 +171,54 @@
         <div>
             <figure class="shadow">
                 <figcaption>
-                    <caption><h2 class="padding-top">Newest Scores</h2></caption>
+                    <caption><h1 class="padding-top">NEW SCORES</h1></caption>
                     <hr class="separatorDark">
-                    <table style="width:100%" class="margin-top">
+                    <table style="width:100%">
                         <tr>
                             <th>
-                                <h3 class="left padding">22.</h3>
+                                <img width="65px" height="65px" class="left padding" src="images/sphere.png" alt="image der Kugel"/>
                             </th>
-                            <th><h3 class="left padding  padding-left">Jimmy</h3></th>
-                            <th><h3 class="right padding">1082</h3></th>
+                            <th><h2 class="left padding padding-bottom13">1. Jimmy</h2></th>
+                            <th><h2 class="right padding padding-bottom22">1082</h2></th>
                         </tr>
                         <tr>
-                            <th style="padding-top: 7%">
-                                <h3 class="left padding">23.</h3>
+                            <th>
+                                <img width="65px" height="65px" class="left padding" src="images/sphere.png" alt="image der goldenen Krone"/>
                             </th>
-                            <th><h3 class="left padding padding-left">Jimmy</h3></th>
-                            <th><h3 class="right padding">1082</h3></th>
+                            <td><h2 class="left padding padding-bottom13">2. Jill</h2></td>
+                            <td><h2 class="right padding padding-bottom22">1061</h2></td>
                         </tr>
                         <tr>
-                            <th style="padding-top: 6%">
-                                <h3 class="left padding">24.</h3>
+                            <th>
+                                <img width="65px" height="65px" class="left padding" src="images/sphere.png" alt="image der goldenen Krone"/>
                             </th>
-                            <th><h3 class="left padding padding-left">Jimmy</h3></th>
-                            <th><h3 class="right padding">1082</h3></th>
+                            <td><h2 class="left padding padding-bottom13">3. Eve</h2></td>
+                            <td><h2 class="right padding padding-bottom22">1001</h2></td>
                         </tr>
                     </table>
                     <hr class="separatorDark">
                     <details>
-                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
                         <table style="width:100%">
                             <th>
-                                <h3 class="left padding">4.</h3>
+                                <h2 class="left padding">4.</h2>
                             </th>
-                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
-                            <th><h3 class="right padding padding-left">82</h3></th>
+                            <th><h2 class="left padding padding-left"> Jimmy</h2></th>
+                            <th><h2 class="right padding padding-left">82</h2></th>
                             </tr>
                             <tr>
                                 <th>
-                                    <h3 class="left padding">5.</h3>
+                                    <h2 class="left padding">5.</h2>
                                 </th>
-                                <td><h3 class="left padding padding-left">Jill</h3></td>
-                                <td><h3 class="right padding padding-left">61</h3></td>
+                                <td><h2 class="left padding padding-left">Jill</h2></td>
+                                <td><h2 class="right padding padding-left">61</h2></td>
                             </tr>
                             <tr>
                                 <th>
-                                    <h3 class="left padding">6.</h3>
+                                    <h2 class="left padding">6.</h2>
                                 </th>
-                                <td><h3 class="left padding padding-left"> Eve</h3></td>
-                                <td><h3 class="right padding padding-left">21</h3></td>
+                                <td><h2 class="left padding padding-left"> Eve</h2></td>
+                                <td><h2 class="right padding padding-left">21</h2></td>
                             </tr>
                         </table>
                     </details>
