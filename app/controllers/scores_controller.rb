@@ -54,13 +54,40 @@ class ScoresController < ApplicationController
     ##@scores = Score.order :score ##ascendent
     @scores = Score.order("score DESC") ##descendent
 
+
+    ##sorted with updated_at DESC row, descendent
+    @scores_updated_at_desc = Score.order("updated_at DESC")
+
+    ## get rank by referencing @scores_desc
+    @scores_updated_at_desc_with_ranking = []
+    @scores_desc = @scores
+    @scores_updated_at_desc.each_with_index do |s_up,i|
+      puts "======"
+      puts "s_up.id: " + s_up.id.to_s + ", " + i.to_s
+      puts "------"
+      @scores_desc.each_with_index do |s_d,j|
+
+        puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
+        if s_up.id.to_i == s_d.id.to_i then ## to_iしないと、.idだけでは、tableのrow列そのものを引っ張ってきてしまう。
+          puts "MATCH!!"
+          id = s_d.id
+          sc = s_d.score
+          p = s_d.player
+          ca = s_d.created_at
+          ua = s_d.updated_at
+          row = {"rank":j+1,"id":id, "score":sc, "player":p, "created_at":ca, "updated_at":ua}
+          @scores_updated_at_desc_with_ranking.push(row)
+          break
+        end
+      end
+    end
+
     ##or return json
     #render json: @scores
   end
 
   def index_debug
     #@scores = Score.all
-
     @scores = Score.order("score DESC")
   end
 
@@ -86,7 +113,6 @@ class ScoresController < ApplicationController
 
     ##redirect_to scores_path ## original
     redirect_to scores_debug_path
-
   end
 
   private

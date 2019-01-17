@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%= @scores_updated_at_desc_with_ranking[0][:rank] %> <br>
+<%= @scores_updated_at_desc_with_ranking[0][:player] %> <br>
+<%= @scores_updated_at_desc_with_ranking[0][:score] %> <br>
+
 
 <html lang="de">
 <head>
@@ -35,33 +39,36 @@
     <h2 class="hidden">Highscoreseite für Overlays reloaded</h2>
     <section class="container">
         <h2 class="hidden">Wir befinden uns im Bereich Logo und Navigation</h2>
+
         <!-- Logo & Hauptnavigation -->
-        <section class="logo"><a href="index.html"><img src="images/overlay_logo_392x66.png"
-                                                        alt="Logo von overlays reloaded"/></a>
-            <h2 class="hidden">Hier ist der Logobereich</h2>
-        </section>
-        <section class="mainmenu">
-            <h2 class="hidden">Hier beginnt das Menü</h2>
-            <nav id='menu'>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Über uns</a></li>
-                    <!--<li class='submenu'><a href="#">Wissenswertes</a>-->
-                    <!--<ul>-->
-                    <!--<li class='submenu'><a href='html.html'><span>HTML5</span></a></li>-->
-                    <!--<li class='submenu'><a href='css.html'><span>CSS3</span></a></li>-->
-                    <!--<li class='submenu'><a href='javas.html'><span>Javascript</span></a></li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
-                    <li class='last'><a href='contact.html'><span>Kontakt</span></a></li>
-                </ul>
-            </nav>
-            <!-- Ende Hauptnavigation -->
-        </section>
+        <!--<section class="logo"><a href="index.html"><img src="images/logo_no_glow.png"-->
+                                                <!--alt="Logo von overlays reloaded"/></a>-->
+        <!--<h2 class="hidden">Hier ist der Logobereich</h2>-->
+        <!--</section>-->
+
+        <!--<section class="mainmenu">-->
+            <!--<h2 class="hidden">Hier beginnt das Menü</h2>-->
+            <!--<nav id='menu'>-->
+                <!--<ul>-->
+                    <!--<li><a href="index.html">Home</a></li>-->
+                    <!--<li><a href="about.html">Über uns</a></li>-->
+                    <!--&lt;!&ndash;<li class='submenu'><a href="#">Wissenswertes</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class='submenu'><a href='html.html'><span>HTML5</span></a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class='submenu'><a href='css.html'><span>CSS3</span></a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class='submenu'><a href='javas.html'><span>Javascript</span></a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--<li class='last'><a href='contact.html'><span>Kontakt</span></a></li>-->
+                <!--</ul>-->
+            <!--</nav>-->
+            <!--&lt;!&ndash; Ende Hauptnavigation &ndash;&gt;-->
+        <!--</section>-->
     </section>
     <!-- Ende Container -->
 
     <!-- Responsive Menu -->
+    <!--
     <form id="responsive-menu" action="#" method="post">
         <select>
             <option value="">Navigation</option>
@@ -70,6 +77,7 @@
             <option value="contact.html">Kontakt</option>
         </select>
     </form>
+    -->
 </header>
 <!-- Ende Header -->
 
@@ -92,97 +100,152 @@
 <!-- Ende Infobox -->
 
 <section class="container fields">
-    <div class="padding">
+    <div class="one_half">
         <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
         <div>
             <figure class="shadow">
                 <figcaption>
+                    <caption><h2 class="padding-top">Top Scores</h2></caption>
+                    <hr class="separatorDark">
                     <table style="width:100%">
-
-                        <tr class="margin-top">
-                            <th style="width: 20%">
-                                <img class="left padding" src="images/crown_84px.png" alt="image der goldenen Krone"/>
-                            </th>
-
-                            <!--
-                            <th><h2 class="left padding">1. Jimmy</h2></th>
-                            <th><h2 class="right padding">1082</h2></th>
-                            -->
-                            <th><h2 class="left padding">1. <%= @scores[0].player %></h2></th>
-                            <th><h2 class="right padding"><%= @scores[0].score %></h2></th>
-                        </tr>
-
                         <tr>
                             <th>
-                                <img class="left padding" src="images/silver_crown_84.png" alt="image der silbernen Krone"/>
+                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
                             </th>
-                            <td><h2 class="left padding">2. <%= @scores[1].player %></h2></td>
-                            <td><h2 class="right padding"><%= @scores[1].score %></h2></td>
+                            <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
+                            <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
                         </tr>
                         <tr>
                             <th>
-                                <img class="left padding" src="images/bronze_crown_84px.png" alt="image der goldenen Krone"/>
+                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
                             </th>
-                            <td><h2 class="left padding">3. <%= @scores[2].player %></h2></td>
-                            <td><h2 class="right padding"><%= @scores[2].score %></h2></td>
+                            <td><h3 class="left padding"><%= @scores[1].player %></h3></td>
+                            <td><h3 class="right padding"><%= @scores[1].score %></h3></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                            </th>
+                            <td><h3 class="left padding"><%= @scores[2].player %></h3></td>
+                            <td><h3 class="right padding"><%= @scores[2].score %></h3></td>
                         </tr>
                     </table>
                     <hr class="separatorDark">
-                    <table style="width:100%">
+                    <details>
+                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                        <table style="width:100%">
 
-                    <% @scores[3..-1].each_with_index do |score, i| %>
-                      <tr>
-                          <th><h4 class="left padding "><%= i+4 %>. <%= score.player %></h4></th>
-                          <th></th>
-                          <th><h4 class="right padding"><%= score.score %></h4></th>
-                      </tr>
-                      <% end %>
+                          <% @scores[3..-1].each_with_index do |score, i| %>
+                          <tr>
+                            <th>
+                               <h3 class="left padding"><%= i+4 %>.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"> <%= score.player %></h3></th>
+                            <th><h3 class="right padding"><%= score.score %></h3></th>
+                          </tr>
+                          <% end %>
 
-                      <!--
+                          <!--
+                          <tr>
+                            <th>
+                               <h3 class="left padding">4.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
+                            <th><h3 class="right padding">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                   <h3 class="left padding">5.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">6.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            -->
+
+                        </table>
+                    </details>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="one_half">
+        <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
+        <div>
+            <figure class="shadow">
+                <figcaption>
+                    <caption><h2 class="padding-top">Newest Scores</h2></caption>
+                    <hr class="separatorDark">
+                    <table style="width:100%" class="margin-top">
                         <tr>
-                            <th><h4 class="left padding ">4. <%= @scores[3].player %></h4></th>
-                            <th></th>
-                            <th><h4 class="right padding"><%= @scores[3].score %></h4></th>
+                            <th>
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %>.</h3>
+                            </th>
+                            <th><h3 class="left padding  padding-left"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
+                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3></th>
                         </tr>
                         <tr>
-                            <td><h4 class="left padding">5. <%= @scores[4].player %></h4></td>
-                            <td></td>
-                            <td><h4 class="right padding"><%= @scores[4].score %></h4></td>
+                            <th style="padding-top: 7%">
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:rank] %>.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"><%= @scores_updated_at_desc_with_ranking[1][:player] %></h3></th>
+                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[1][:score] %></h3></th>
                         </tr>
                         <tr>
-                            <td><h4 class="left padding">6. <%= @scores[5].player %></h4></td>
-                            <td></td>
-                            <td><h4 class="right padding"><%= @scores[5].score %></h4></td>
+                            <th style="padding-top: 6%">
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:rank] %>.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"><%= @scores_updated_at_desc_with_ranking[2][:player] %></h3></th>
+                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[2][:score] %></h3></th>
                         </tr>
-                        -->
-
-
                     </table>
-                    <div class="ico animated">
+                    <hr class="separatorDark">
+                    <details>
+                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                        <table style="width:100%">
 
-                        <!--<div class="circle circle-top"></div>-->
-                        <!--<div class="circle circle-main"></div>-->
-                        <!--<div class="circle circle-bottom"></div>-->
+                          <% @scores_updated_at_desc_with_ranking[3..-1].each do |score| %>
+                          <tr>
+                            <th>
+                               <h3 class="left padding"><%= score[:rank] %>.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"> <%= score[:player] %></h3></th>
+                            <th><h3 class="right padding padding-left"><%= score[:score] %></h3></th>
+                          </tr>
+                          <% end %>
 
-                        <!--<svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve" >-->
-                                  <!--<defs>-->
-                                    <!--<clipPath id="cut-off-arrow">-->
-                                      <!--<circle cx="306" cy="306" r="287"/>-->
-                                    <!--</clipPath>-->
+                          <!--
+                          <tr>
+                            <th>
+                                <h3 class="left padding">4.</h3>
+                            </th>
+                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
+                            <th><h3 class="right padding padding-left">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">5.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding padding-left">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">6.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding padding-left">21</h3></td>
+                            </tr>
+                            -->
 
-                                    <!--<filter id="goo">-->
-                                      <!--<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />-->
-                                      <!--<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />-->
-                                      <!--<feBlend in="SourceGraphic" in2="goo" />-->
-                                    <!--</filter>-->
-
-                                  <!--</defs>-->
-                                    <!--<path  class="st-arrow" d="M317.5,487.6c0.3-0.3,0.4-0.7,0.7-1.1l112.6-112.6c6.3-6.3,6.3-16.5,0-22.7c-6.3-6.3-16.5-6.3-22.7,0-->
-                                                    <!--l-86,86V136.1c0-8.9-7.3-16.2-16.2-16.2c-8.9,0-16.2,7.3-16.2,16.2v301.1l-86-86c-6.3-6.3-16.5-6.3-22.7,0-->
-                                                    <!--c-6.3,6.3-6.3,16.5,0,22.7l112.7,112.7c0.3,0.3,0.4,0.7,0.7,1c0.5,0.5,1.2,0.5,1.7,0.9c1.7,1.4,3.6,2.3,5.6,2.9-->
-                                                    <!--c0.8,0.2,1.5,0.4,2.3,0.4C308.8,492.6,313.8,491.3,317.5,487.6z"/>-->
-                        <!--</svg>-->
-                    </div>
+                        </table>
+                    </details>
                 </figcaption>
             </figure>
         </div>
