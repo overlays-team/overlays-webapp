@@ -116,7 +116,7 @@ hr.separator2 {
 	margin-top: -50%;
 }
 .margin-top {
-	margin-top: 15%;
+	margin-top: 11%;
 }
 .margin-left {
 	margin-left: 2%;
@@ -129,7 +129,7 @@ hr.separator2 {
 }
 
 .padding-left {
-	padding-left: 40%;
+	padding-left: 20%;
 }
 
 tr:first-child {
@@ -715,6 +715,10 @@ form#contact_form textarea {
 }
 
 @media only screen and (max-width: 767px) {
+
+h3 {
+	font-size: 1.5em;
+}
 .mainmenu select {
  position:absolute;
  top:0;
@@ -740,6 +744,10 @@ form#contact_form textarea {
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+h3 {
+	font-size: 1em;
+}
 .mainmenu select {
  position:absolute;
  top:0;
@@ -765,6 +773,10 @@ form#contact_form textarea {
 }
 
 @media only screen and (max-width: 479px) {
+
+h3{
+	font-size: 0.8em;
+}
 .mainmenu select {
  position:absolute;
  top:0;
@@ -801,4 +813,3 @@ form#contact_form input#email {
  width: 150px;
 }
 }
-

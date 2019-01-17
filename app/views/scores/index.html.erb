@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%= @scores_updated_at_desc_with_ranking[0][:rank] %> <br>
+<%= @scores_updated_at_desc_with_ranking[0][:player] %> <br>
+<%= @scores_updated_at_desc_with_ranking[0][:score] %> <br>
+
 
 <html lang="de">
 <head>
@@ -35,11 +39,13 @@
     <h2 class="hidden">Highscoreseite für Overlays reloaded</h2>
     <section class="container">
         <h2 class="hidden">Wir befinden uns im Bereich Logo und Navigation</h2>
+
         <!-- Logo & Hauptnavigation -->
-        <section class="logo"><a href="index.html"><img src="images/logo_no_glow.png"
-                                                        alt="Logo von overlays reloaded"/></a>
-            <h2 class="hidden">Hier ist der Logobereich</h2>
-        </section>
+        <!--<section class="logo"><a href="index.html"><img src="images/logo_no_glow.png"-->
+                                                <!--alt="Logo von overlays reloaded"/></a>-->
+        <!--<h2 class="hidden">Hier ist der Logobereich</h2>-->
+        <!--</section>-->
+
         <!--<section class="mainmenu">-->
             <!--<h2 class="hidden">Hier beginnt das Menü</h2>-->
             <!--<nav id='menu'>-->
@@ -62,6 +68,7 @@
     <!-- Ende Container -->
 
     <!-- Responsive Menu -->
+    <!--
     <form id="responsive-menu" action="#" method="post">
         <select>
             <option value="">Navigation</option>
@@ -70,6 +77,7 @@
             <option value="contact.html">Kontakt</option>
         </select>
     </form>
+    -->
 </header>
 <!-- Ende Header -->
 
@@ -111,15 +119,15 @@
                             <th>
                                 <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
                             </th>
-                            <td><h3 class="left padding padding-bottom8"><%= @scores[1].player %></h3></td>
-                            <td><h3 class="right padding padding-bottom13"><%= @scores[1].score %></h3></td>
+                            <td><h3 class="left padding"><%= @scores[1].player %></h3></td>
+                            <td><h3 class="right padding"><%= @scores[1].score %></h3></td>
                         </tr>
                         <tr>
                             <th>
                                 <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
                             </th>
-                            <td><h3 class="left padding padding-bottom8"><%= @scores[2].player %></h3></td>
-                            <td><h3 class="right padding padding-bottom13"><%= @scores[2].score %></h3></td>
+                            <td><h3 class="left padding"><%= @scores[2].player %></h3></td>
+                            <td><h3 class="right padding"><%= @scores[2].score %></h3></td>
                         </tr>
                     </table>
                     <hr class="separatorDark">
@@ -177,10 +185,10 @@
                     <table style="width:100%" class="margin-top">
                         <tr>
                             <th>
-                                <h3 class="left padding">1.</h3>
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %></h3>
                             </th>
-                            <th><h3 class="left padding  padding-left"><%= @scores_updated_at_desc[0].player %></h3></th>
-                            <th><h3 class="right padding"><%= @scores_updated_at_desc[0].score %></h3></th>
+                            <th><h3 class="left padding  padding-left"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
+                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3></th>
                         </tr>
                         <tr>
                             <th style="padding-top: 7%">
