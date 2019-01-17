@@ -101,18 +101,7 @@ class ScoresController < ApplicationController
         end
       end
     end
-    ##puts "j_rank"
-    ##puts j_rank
 
-    ##debug
-
-    ##score_n_d = Score.order("updated_at DESC")
-    ##score_n_d.each_with_index do |s, i|
-    ##@scores.each_with_index do |s, i|
-    ##  if @scores_new_desc[i] == s then
-
-    ##  end
-    ##end
 
 
     ##or return json
