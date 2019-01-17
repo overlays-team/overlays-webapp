@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   ## add extra route
   get "scores_debug", to: "scores#index_debug"
-
-
+  get "scores_desc", to: "scores#scores_desc"
+  get "scores_updated_at_desc_with_ranking", to: "scores#scores_updated_at_desc_with_ranking"
 
 end

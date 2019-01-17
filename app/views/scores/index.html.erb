@@ -98,81 +98,67 @@
 <!-- Ende Infobox -->
 
 <section class="container fields">
-    <div class="one_half">
-        <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
-        <div>
-            <figure class="shadow">
-                <figcaption>
-                    <caption><h2 class="padding-top">Top Scores</h2></caption>
-                    <hr class="separatorDark">
-                    <table style="width:100%">
-                        <tr>
-                            <th>
-                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
-                            </th>
-                            <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
-                            <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
-                        </tr>
-                        <tr>
-                            <th>
-                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
-                            </th>
-                            <td><h3 class="left padding"><%= @scores[1].player %></h3></td>
-                            <td><h3 class="right padding"><%= @scores[1].score %></h3></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
-                            </th>
-                            <td><h3 class="left padding"><%= @scores[2].player %></h3></td>
-                            <td><h3 class="right padding"><%= @scores[2].score %></h3></td>
-                        </tr>
-                    </table>
-                    <hr class="separatorDark">
-                    <details>
-                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
-                        <table style="width:100%">
-
-                          <% @scores[3..-1].each_with_index do |score, i| %>
+  <div class="one_half">
+      <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
+      <div>
+          <figure class="shadow">
+              <figcaption>
+                  <caption><h2 class="padding-top">Top Scores</h2></caption>
+                  <hr class="separatorDark">
+                  <table style="width:100%">
+                      <tr>
+                          <th>
+                              <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
+                          </th>
+                          <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
+                          <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
+                      </tr>
+                      <tr>
+                          <th>
+                              <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
+                          </th>
+                          <td><h3 class="left padding"><%= @scores[1].player %></h3></td>
+                          <td><h3 class="right padding"><%= @scores[1].score %></h3></td>
+                      </tr>
+                      <tr>
+                          <th>
+                              <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                          </th>
+                          <td><h3 class="left padding"><%= @scores[2].player %></h3></td>
+                          <td><h3 class="right padding"><%= @scores[2].score %></h3></td>
+                      </tr>
+                  </table>
+                  <hr class="separatorDark">
+                      <table style="width:100%">
+                        <% @scores[3..9].each_with_index do |score, i| %>
                           <tr>
-                            <th>
-                               <h3 class="left padding"><%= i+4 %>.</h3>
-                            </th>
-                            <th><h3 class="left padding padding-left"> <%= score.player %></h3></th>
-                            <th><h3 class="right padding"><%= score.score %></h3></th>
+                          <th>
+                             <h3 class="left padding"><%= i+4 %>.</h3>
+                          </th>
+                          <th><h3 class="left padding padding-left"> <%= score.player %></h3></th>
+                          <th><h3 class="right padding"><%= score.score %></h3></th>
                           </tr>
-                          <% end %>
-
-                          <!--
-                          <tr>
-                            <th>
-                               <h3 class="left padding">4.</h3>
-                            </th>
-                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
-                            <th><h3 class="right padding">82</h3></th>
-                            </tr>
+                        <% end %>
+                      </table>
+                      <details>
+                          <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                          <table style="width:100%">
+                            <% @scores[10..-1].each_with_index do |score, i| %>
                             <tr>
-                                <th>
-                                   <h3 class="left padding">5.</h3>
-                                </th>
-                                <td><h3 class="left padding padding-left">Jill</h3></td>
-                                <td><h3 class="right padding">61</h3></td>
+                              <th>
+                                  <h3 class="left padding"><%= i+11 %>.</h3>
+                              </th>
+                              <th><h3 class="left padding padding-left"><%= score.player %></h3></th>
+                              <th><h3 class="right padding"><%= score.score %></h3></th>
                             </tr>
-                            <tr>
-                                <th>
-                                    <h3 class="left padding">6.</h3>
-                                </th>
-                                <td><h3 class="left padding padding-left"> Eve</h3></td>
-                                <td><h3 class="right padding">21</h3></td>
-                            </tr>
-                            -->
+                            <% end %>
+                          </table>
+                      </details>
+              </figcaption>
+          </figure>
+      </div>
+  </div>
 
-                        </table>
-                    </details>
-                </figcaption>
-            </figure>
-        </div>
-    </div>
     <div class="one_half">
         <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
         <div>
@@ -185,7 +171,7 @@
                             <th>
                                 <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %>.</h3>
                             </th>
-                            <th><h3 class="left padding  padding-left"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
+                            <th><h3 class="left padding  padding-left"> <%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3></th>
                         </tr>
                         <tr>
@@ -204,50 +190,38 @@
                         </tr>
                     </table>
                     <hr class="separatorDark">
-                    <details>
-                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
-                        <table style="width:100%">
-
-                          <% @scores_updated_at_desc_with_ranking[3..-1].each do |score| %>
+                    <table style="width:100%">
+                      <% @scores_updated_at_desc_with_ranking[3..9].each do |score| %>
                           <tr>
                             <th>
-                               <h3 class="left padding"><%= score[:rank] %>.</h3>
+                                <h3 class="left padding"><%= score[:rank] %>.</h3>
                             </th>
                             <th><h3 class="left padding padding-left"> <%= score[:player] %></h3></th>
                             <th><h3 class="right padding padding-left"><%= score[:score] %></h3></th>
                           </tr>
-                          <% end %>
-
-                          <!--
-                          <tr>
-                            <th>
-                                <h3 class="left padding">4.</h3>
-                            </th>
-                            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
-                            <th><h3 class="right padding padding-left">82</h3></th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <h3 class="left padding">5.</h3>
-                                </th>
-                                <td><h3 class="left padding padding-left">Jill</h3></td>
-                                <td><h3 class="right padding padding-left">61</h3></td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <h3 class="left padding">6.</h3>
-                                </th>
-                                <td><h3 class="left padding padding-left"> Eve</h3></td>
-                                <td><h3 class="right padding padding-left">21</h3></td>
-                            </tr>
-                            -->
-
+                        <% end %>
                         </table>
-                    </details>
+                        <details>
+                            <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+                            <table style="width:100%">
+                              <% @scores_updated_at_desc_with_ranking[10..-1].each do |score| %>
+                              <tr>
+                                <th>
+                                    <h3 class="left padding"><%= score[:rank] %>.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left"><%= score[:player] %></h3></th>
+                                <th><h3 class="right padding"><%= score[:score] %></h3></th>
+                              </tr>
+                              <% end %>
+                            </table>
+                        </details>
                 </figcaption>
             </figure>
         </div>
     </div>
+
+
+
 </section>
 <!-- end container -->
 
@@ -277,7 +251,9 @@
 <script src="scripts/jquery-3.1.1.min.js"></script>
 <script src="scripts/particles.js"></script>
 <script src="scripts/app.js"></script>
+<!--
 <script src="scripts/reload.js"></script>
+-->
 
 </body>
 </html>
