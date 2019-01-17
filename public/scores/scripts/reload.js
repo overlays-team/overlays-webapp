@@ -1,6 +1,6 @@
 
 window.addEventListener('load', function () {
-    const interval = 2000;
+    const interval = 10000;
     setTimeout(doReloadIgnoreCache, interval);
 });
 
