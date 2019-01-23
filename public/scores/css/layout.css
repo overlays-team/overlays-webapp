@@ -90,6 +90,8 @@ hr.separator2 {
 	margin-top:0px;
 }
 .logo {
+	/*width: 50%;*/
+	/*height: 50%;*/
 	float: left;
 	padding-top: 1%;
 }
@@ -748,6 +750,7 @@ form#contact_form textarea {
 h3 {
 	font-size: 1em;
 }
+
 .mainmenu select {
  position:absolute;
  top:0;
@@ -773,7 +776,6 @@ form#contact_form textarea {
 }
 
 @media only screen and (max-width: 479px) {
-
 h3{
 	font-size: 0.8em;
 }
@@ -813,3 +815,4 @@ form#contact_form input#email {
  width: 150px;
 }
 }
+
