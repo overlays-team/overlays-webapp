@@ -159,6 +159,8 @@
                 <figcaption>
                     <caption><h2 class="padding-top">Newest Scores</h2></caption>
                     <hr class="separatorDark">
+
+                    <!--
                     <table style="width:100%" class="margin-top">
                         <tr>
                             <th>
@@ -182,6 +184,43 @@
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[2][:score] %></h3></th>
                         </tr>
                     </table>
+                    -->
+
+                    <table style="width:100%">
+                        <tr>
+                            <th>
+                                <!--
+                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
+                                -->
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %>.</h3>
+                            </th>
+                            <th><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
+                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <!--
+                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
+                                -->
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:rank] %>.</h3>
+                            </th>
+                            <td><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:player] %></h3></td>
+                            <td><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[1][:score] %></h3></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <!--
+                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                                -->
+                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:rank] %>.</h3>
+                            </th>
+                            <td><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:player] %></h3></td>
+                            <td><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[2][:score] %></h3></td>
+                        </tr>
+                    </table>
+
+
                     <hr class="separatorDark">
                     <table style="width:100%">
                       <% @scores_updated_at_desc_with_ranking[3..9].each do |score| %>
