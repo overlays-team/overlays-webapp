@@ -22,7 +22,7 @@
 
     <!-- ======= Google Fonts ====== -->
 
-    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
 <!-- Ende Headbereich -->
@@ -36,8 +36,8 @@
         <h2 class="hidden">Wir befinden uns im Bereich Logo und Navigation</h2>
         <!-- Logo & Hauptnavigation -->
         <!--<section class="logo"><a href="index.html"><img src="images/logo_no_glow.png"-->
-                                                <!--alt="Logo von overlays reloaded"/></a>-->
-        <!--<h2 class="hidden">Hier ist der Logobereich</h2>-->
+                                                        <!--alt="Logo von overlays reloaded"/></a>-->
+            <!--<h2 class="hidden">Hier ist der Logobereich</h2>-->
         <!--</section>-->
         <!--<section class="mainmenu">-->
             <!--<h2 class="hidden">Hier beginnt das Menü</h2>-->
@@ -61,14 +61,14 @@
     <!-- Ende Container -->
 
     <!-- Responsive Menu -->
-    <!--<form id="responsive-menu" action="#" method="post">
-        <select>
-            <option value="">Navigation</option>
-            <option value="index.html">Home</option>
-            <option value="about.html">About</option>
-            <option value="contact.html">Kontakt</option>
-        </select>
-    </form>-->
+    <!--<form id="responsive-menu" action="#" method="post">-->
+        <!--<select>-->
+            <!--<option value="">Navigation</option>-->
+            <!--<option value="index.html">Home</option>-->
+            <!--<option value="about.html">About</option>-->
+            <!--<option value="contact.html">Kontakt</option>-->
+        <!--</select>-->
+    <!--</form>-->
 </header>
 <!-- Ende Header -->
 
@@ -104,8 +104,7 @@
                                 <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
                             </th>
                             <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
-                            <th><h3 class="right padding"><%= @scores[0].score %></h3>
-                            </th>
+                            <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
                         </tr>
                         <tr>
                             <th>
@@ -126,28 +125,93 @@
                         <table style="width:100%">
                           <% @scores[3..9].each_with_index do |score, i| %>
                           <tr>
-                          <th>
-                             <h3 class="left padding"><%= i+4 %>.</h3>
-                          </th>
-                          <th><h3 class="left padding padding-left"> <%= score.player %></h3></th>
-                          <th><h3 class="right padding"><%= score.score %></h3></th>
+                              <th>
+                                 <h3 class="left padding"><%= i+4 %>.</h3>
+                              </th>
+                              <th><h3 class="left padding padding-left"><%= score.player %></h3></th>
+                              <th><h3 class="right padding"><%= score.score %></h3></th>
                           </tr>
                           <% end %>
+
+                          <!--
+                            <tr>
+                                <th>
+                                   <h3 class="left padding">4.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
+                                <th><h3 class="right padding">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                   <h3 class="left padding">5.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">6.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">7.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left"> Jimmy</h3></th>
+                                <th><h3 class="right padding">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">8.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">9.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">10.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            -->
+
                         </table>
                         <details>
                             <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
                             <table style="width:100%">
+
                               <% @scores[10..-1].each_with_index do |score, i| %>
                               <tr>
-                                <th>
+                              <th>
                                   <h3 class="left padding"><%= i+11 %>.</h3>
-                                </th>
-                                <th><h3 class="left padding padding-left"><%= score.player %></h3></th>
-                                <th><h3 class="right padding"><%= score.score %></h3></th>
+                              </th>
+                              <td><h3 class="left padding padding-left"><%= score.player %></h3></td>
+                              <td><h3 class="right padding"><%= score.score %></h3></td>
                               </tr>
                               <% end %>
+
+                              <!--
+                                <tr>
+                                <th>
+                                    <h3 class="left padding">10.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Jimmy der coole ist uncool</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                                </tr>
+                                -->
+
                             </table>
-                    </details>
+                        </details>
                 </figcaption>
             </figure>
         </div>
@@ -159,14 +223,12 @@
                 <figcaption>
                     <caption><h2 class="padding-top">Newest Scores</h2></caption>
                     <hr class="separatorDark">
-
-                    <!--
                     <table style="width:100%" class="margin-top">
                         <tr>
                             <th>
                                 <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %>.</h3>
                             </th>
-                            <th><h3 class="left padding  padding-left"> <%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
+                            <th><h3 class="left padding  padding-left"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3></th>
                         </tr>
                         <tr>
@@ -184,76 +246,101 @@
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[2][:score] %></h3></th>
                         </tr>
                     </table>
-                    -->
-
-                    <table style="width:100%">
-                        <tr>
-                            <th>
-                                <!--
-                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
-                                -->
-                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:rank] %>.</h3>
-                            </th>
-                            <th><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[0][:player] %></h3></th>
-                            <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                <!--
-                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
-                                -->
-                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:rank] %>.</h3>
-                            </th>
-                            <td><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:player] %></h3></td>
-                            <td><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[1][:score] %></h3></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <!--
-                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
-                                -->
-                                <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:rank] %>.</h3>
-                            </th>
-                            <td><h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:player] %></h3></td>
-                            <td><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[2][:score] %></h3></td>
-                        </tr>
-                    </table>
-
-
                     <hr class="separatorDark">
                     <table style="width:100%">
                       <% @scores_updated_at_desc_with_ranking[3..9].each do |score| %>
-                          <tr>
-                            <th>
-                                <h3 class="left padding"><%= score[:rank] %>.</h3>
-                            </th>
-                            <th><h3 class="left padding padding-left"> <%= score[:player] %></h3></th>
-                            <th><h3 class="right padding"><%= score[:score] %></h3></th>
-                          </tr>
-                        <% end %>
+                      <tr>
+                          <th>
+                              <h3 class="left padding"><%= score[:rank] %>.</h3>
+                          </th>
+                          <th><h3 class="left padding padding-left"><%= score[:player] %></h3></th>
+                          <th><h3 class="right padding padding-left"><%= score[:score] %></h3></th>
+                      </tr>
+                      <% end %>
+
+                      <!--
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">4.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left"> Jimmy der coole ist uncool</h3></th>
+                                <th><h3 class="right padding padding-left">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">5.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding padding-left">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">6.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding padding-left">21</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">7.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left"> Jimmy</h3></th>
+                                <th><h3 class="right padding">82</h3></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">8.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left">Jill</h3></td>
+                                <td><h3 class="right padding">61</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">9.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">10.</h3>
+                                </th>
+                                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                                <td><h3 class="right padding">21</h3></td>
+                            </tr>
+                            -->
+
                         </table>
                         <details>
                             <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
                             <table style="width:100%">
+
                               <% @scores_updated_at_desc_with_ranking[10..-1].each do |score| %>
                               <tr>
-                                <th>
-                                    <h3 class="left padding"><%= score[:rank] %>.</h3>
-                                </th>
-                                <th><h3 class="left padding padding-left"><%= score[:player] %></h3></th>
-                                <th><h3 class="right padding"><%= score[:score] %></h3></th>
+                                  <th>
+                                      <h3 class="left padding"><%= score[:rank] %>.</h3>
+                                  </th>
+                                  <th><h3 class="left padding padding-left"><%= score[:player] %>l</h3></th>
+                                  <th><h3 class="right padding padding-left"><%= score[:score] %></h3></th>
                               </tr>
                               <% end %>
-                            </table>
+
+                            <!--
+                            <tr>
+                                <th>
+                                    <h3 class="left padding">4.</h3>
+                                </th>
+                                <th><h3 class="left padding padding-left"> Jimmy der coole ist uncool</h3></th>
+                                <th><h3 class="right padding padding-left">82</h3></th>
+                            </tr>
+                            -->
+
+                        </table>
                         </details>
                 </figcaption>
             </figure>
         </div>
     </div>
-
-
-
 </section>
 <!-- end container -->
 
@@ -261,7 +348,7 @@
 <section class="footer">
     <h2 class="hidden">Hier finden wir den Fußbereich</h2>
     <section class="container">
-        <h2 class="hidden">Hier befinden Kontaktdaten unserer Firma </h2>
+        <h2 class="hidden">Hier befinden sich Kontaktdaten unserer Firma </h2>
         <!--<section class="one_third">-->
         <!--<h3>Kontaktinformationen</h3>-->
         <!--<p><span class="cyan"><strong>Addresse:</strong></span> <br>-->
