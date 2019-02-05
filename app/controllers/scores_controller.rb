@@ -15,27 +15,28 @@ class ScoresController < ApplicationController
 
   ## POST /scores
   def create
-    ##render plain: params[:score].inspect
+    ##for debug
+    #render plain: params[:score].inspect
 
     ##association
     @score = Score.new(score_params)
 
-    if @score.save     ## if successed, save to db
+    if @score.save  ## if successed, save to db
 
-      ##return normal html
-      #redirect_to @score     ##redirect to added score
+      ##return html
+      #redirect_to @score     ##redirect to newly added score
       ##or
-      #redirect_to score_path  ##score list
+      redirect_to scores_path  ##redirect to score list
 
-      ##return json
-      render json: @score, status: :created, location: @score
+      ##or return json
+      #render json: @score, status: :created, location: @score
     else
 
-      ##return normal html
-      #render "new"
+      ##return html
+      render "new"
 
-      ##return json
-      render json: @score.errors, status: :unprocessable_entity
+      ##or return json
+      #render json: @score.errors, status: :unprocessable_entity
     end
 
   end
