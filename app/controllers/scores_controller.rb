@@ -26,7 +26,7 @@ class ScoresController < ApplicationController
       ##return html
       #redirect_to @score     ##redirect to newly added score
       ##or
-      redirect_to scores_path  ##redirect to score list
+      redirect_to scores_debug_path  ##redirect to score list
 
       ##or return json
       #render json: @score, status: :created, location: @score
@@ -59,29 +59,6 @@ class ScoresController < ApplicationController
     @scores_updated_at_desc = Score.order("updated_at DESC")
 
     ## get rank by referencing @scores_desc
-    ##EXTRACT THIS METHOD!!!!
-    # @scores_desc = @scores
-    # @scores_updated_at_desc_with_ranking = []
-    # @scores_updated_at_desc.each_with_index do |s_up,i|
-    #   puts "======"
-    #   puts "s_up.id: " + s_up.id.to_s + ", " + i.to_s
-    #   puts "------"
-    #   @scores_desc.each_with_index do |s_d,j|
-    #     puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
-    #     if s_up.id.to_i == s_d.id.to_i then ## to_iしないと、.idだけでは、tableのrow列そのものを引っ張ってきてしまう。
-    #       puts "MATCH!!"
-    #       id = s_d.id
-    #       sc = s_d.score
-    #       p = s_d.player
-    #       ca = s_d.created_at
-    #       ua = s_d.updated_at
-    #       row = {"rank":j+1,"id":id, "score":sc, "player":p, "created_at":ca, "updated_at":ua}
-    #       @scores_updated_at_desc_with_ranking.push(row)
-    #       break
-    #     end
-    #   end
-    # end
-
     create_scores_updated_at_desc_with_ranking()
 
     ##or return json
@@ -100,7 +77,6 @@ class ScoresController < ApplicationController
   end
 
   def create_scores_updated_at_desc_with_ranking
-    puts "hello, this is: create_scores_updated_at_desc_with_ranking()"
     @scores_desc = @scores
     @scores_updated_at_desc = Score.order("updated_at DESC")
     @scores_updated_at_desc_with_ranking = []
@@ -127,7 +103,10 @@ class ScoresController < ApplicationController
   end
 
   def index_debug
+    ##normal order
     #@scores = Score.all
+
+    ##sorted
     @scores = Score.order("score DESC")
   end
 
@@ -151,7 +130,10 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
     @score.destroy
 
-    ##redirect_to scores_path ## original
+    ## return to normal site
+    #redirect_to scores_path
+
+    ##return to debug site
     redirect_to scores_debug_path
   end
 
