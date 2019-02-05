@@ -6,7 +6,6 @@ class ScoresController < ApplicationController
   ##don't check AuthenticityToken
   skip_before_action :verify_authenticity_token
 
-
   ## GET /scores/new
   def new
     @score = Score.new
@@ -65,17 +64,23 @@ class ScoresController < ApplicationController
     #render json: @scores
   end
 
+
+  ##produce json for high score list
   def scores_desc
     @scores = Score.order("score DESC") ##descendent
     render json: @scores
   end
 
+
+  ##produce json for newly added socre with ranking
   def scores_updated_at_desc_with_ranking
     @scores = Score.order("score DESC") ##descendent
     create_scores_updated_at_desc_with_ranking()
     render json: @scores_updated_at_desc_with_ranking
   end
 
+
+  ##create newly added socre list with ranking
   def create_scores_updated_at_desc_with_ranking
     @scores_desc = @scores
     @scores_updated_at_desc = Score.order("updated_at DESC")
@@ -99,11 +104,11 @@ class ScoresController < ApplicationController
         end
       end
     end
-
   end
 
+
   def index_debug
-    ##normal order
+    ##normal order(createed at)
     #@scores = Score.all
 
     ##sorted
@@ -115,16 +120,16 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
   end
 
+
   def update
     @score = Score.find(params[:id])
-
     if @score.update(score_params) ## if update successed
       redirect_to @score
     else
       reder "edit"
     end
-
   end
+
 
   def destroy
     @score = Score.find(params[:id])
@@ -136,6 +141,7 @@ class ScoresController < ApplicationController
     ##return to debug site
     redirect_to scores_debug_path
   end
+
 
   private
     def score_params
