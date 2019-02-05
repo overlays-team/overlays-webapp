@@ -6,7 +6,6 @@ class ScoresController < ApplicationController
   ##don't check AuthenticityToken
   skip_before_action :verify_authenticity_token
 
-
   ## GET /scores/new
   def new
     @score = Score.new
@@ -15,27 +14,28 @@ class ScoresController < ApplicationController
 
   ## POST /scores
   def create
-    ##render plain: params[:score].inspect
+    ##for debug
+    #render plain: params[:score].inspect
 
     ##association
     @score = Score.new(score_params)
 
-    if @score.save     ## if successed, save to db
+    if @score.save  ## if successed, save to db
 
-      ##return normal html
-      #redirect_to @score     ##redirect to added score
+      ##return html
+      #redirect_to @score     ##redirect to newly added score
       ##or
-      #redirect_to score_path  ##score list
+      redirect_to scores_debug_path  ##redirect to score list
 
-      ##return json
-      render json: @score, status: :created, location: @score
+      ##or return json
+      #render json: @score, status: :created, location: @score
     else
 
-      ##return normal html
-      #render "new"
+      ##return html
+      render "new"
 
-      ##return json
-      render json: @score.errors, status: :unprocessable_entity
+      ##or return json
+      #render json: @score.errors, status: :unprocessable_entity
     end
 
   end
@@ -58,48 +58,30 @@ class ScoresController < ApplicationController
     @scores_updated_at_desc = Score.order("updated_at DESC")
 
     ## get rank by referencing @scores_desc
-    ##EXTRACT THIS METHOD!!!!
-    # @scores_desc = @scores
-    # @scores_updated_at_desc_with_ranking = []
-    # @scores_updated_at_desc.each_with_index do |s_up,i|
-    #   puts "======"
-    #   puts "s_up.id: " + s_up.id.to_s + ", " + i.to_s
-    #   puts "------"
-    #   @scores_desc.each_with_index do |s_d,j|
-    #     puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
-    #     if s_up.id.to_i == s_d.id.to_i then ## to_iしないと、.idだけでは、tableのrow列そのものを引っ張ってきてしまう。
-    #       puts "MATCH!!"
-    #       id = s_d.id
-    #       sc = s_d.score
-    #       p = s_d.player
-    #       ca = s_d.created_at
-    #       ua = s_d.updated_at
-    #       row = {"rank":j+1,"id":id, "score":sc, "player":p, "created_at":ca, "updated_at":ua}
-    #       @scores_updated_at_desc_with_ranking.push(row)
-    #       break
-    #     end
-    #   end
-    # end
-
     create_scores_updated_at_desc_with_ranking()
 
     ##or return json
     #render json: @scores
   end
 
+
+  ##produce json for high score list
   def scores_desc
     @scores = Score.order("score DESC") ##descendent
     render json: @scores
   end
 
+
+  ##produce json for newly added socre with ranking
   def scores_updated_at_desc_with_ranking
     @scores = Score.order("score DESC") ##descendent
     create_scores_updated_at_desc_with_ranking()
     render json: @scores_updated_at_desc_with_ranking
   end
 
+
+  ##create newly added socre list with ranking
   def create_scores_updated_at_desc_with_ranking
-    puts "hello, this is: create_scores_updated_at_desc_with_ranking()"
     @scores_desc = @scores
     @scores_updated_at_desc = Score.order("updated_at DESC")
     @scores_updated_at_desc_with_ranking = []
@@ -122,11 +104,14 @@ class ScoresController < ApplicationController
         end
       end
     end
-
   end
 
+
   def index_debug
+    ##normal order(createed at)
     #@scores = Score.all
+
+    ##sorted
     @scores = Score.order("score DESC")
   end
 
@@ -135,24 +120,28 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
   end
 
+
   def update
     @score = Score.find(params[:id])
-
     if @score.update(score_params) ## if update successed
       redirect_to @score
     else
       reder "edit"
     end
-
   end
+
 
   def destroy
     @score = Score.find(params[:id])
     @score.destroy
 
-    ##redirect_to scores_path ## original
+    ## return to normal site
+    #redirect_to scores_path
+
+    ##return to debug site
     redirect_to scores_debug_path
   end
+
 
   private
     def score_params
