@@ -24,53 +24,62 @@
 
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
-    <script>
-    function ChangeParaToDate() {
-      //document.getElementById('eid_date').innerHTML = Date();
-
-      var lyricsText = document.getElementById("eid_date");
-
-      const artist = ""
-      const trackName = ""
-      try {
-        const lyrics = await this.queryLyrics(artist, trackName);
-        console.log(lyrics);
-        //artistAndTrack.innerHTML = "Lyrics for " + artist + ", " + trackName;
-        //lyricsText.value = lyrics.result.track.text;
-        lyricsText.innerHTML  = "Lyrics for " + artist + ", " + trackName;
-      } catch (error) {
-        this.displayError(error);
-        //lyricsText.value = "no such song found in database";
-        lyricsText.innerHTML  = "no such song found in database";
-      }
-    }
-
-    Object.defineProperty(ServerRadioController.prototype, 'queryLyrics', {
-      enumerable: false,
-      configurable: false,
-      value: async function(artist,trackName) {
-        const apikey = "9rKTnZBFvEFwSc6eZHA7a7G7mXsrMyIgu7R4L015Lzv9MG8Af4J3OoI0TJ8VB8xs";
-        const resource = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + trackName + "?apikey=" + apikey;
-
-        let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
-        if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
-
-        const lyrics = await response.json();
-        return lyrics;
-      }
-    });
-
-
-
-    </script>
 
 </head>
 <!-- Ende Headbereich -->
 <body>
 
 
-  <button type="button" onclick="ChangeParaToDate()">DEBUG</button>
+  <button type="button" onclick="updateTable()">DEBUG</button>
   <p id="eid_date">時刻を表示します。</p>
+
+
+  <script>
+      function updateTable(){
+        //var updateTable = function () {
+        //document.getElementById('eid_date').innerHTML = Date();
+        console.log("hello updateTable()");
+
+        /*
+        var lyricsText = document.getElementById("eid_date");
+
+        const artist = ""
+        const trackName = ""
+        try {
+          const lyrics = await this.queryLyrics(artist, trackName);
+          console.log(lyrics);
+          //artistAndTrack.innerHTML = "Lyrics for " + artist + ", " + trackName;
+          //lyricsText.value = lyrics.result.track.text;
+          lyricsText.innerHTML  = "Lyrics for " + artist + ", " + trackName;
+        } catch (error) {
+          this.displayError(error);
+          //lyricsText.value = "no such song found in database";
+          lyricsText.innerHTML  = "no such song found in database";
+        }
+        */
+      }
+
+
+      Object.defineProperty(ServerRadioController.prototype, 'queryLyrics', {
+        enumerable: false,
+        configurable: false,
+        value: async function(artist,trackName) {
+          const apikey = "9rKTnZBFvEFwSc6eZHA7a7G7mXsrMyIgu7R4L015Lzv9MG8Af4J3OoI0TJ8VB8xs";
+          const resource = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + trackName + "?apikey=" + apikey;
+
+          let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
+          if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
+
+          const lyrics = await response.json();
+          return lyrics;
+        }
+      });
+
+
+      function myFunction1(){
+        console.log("hello myFunction1")
+      }
+      </script>
 
 
 <!-- Header -->
@@ -335,6 +344,8 @@
     <h2 class="hidden">Hier finden wir den Fußbereich</h2>
     <section class="container">
         <h2 class="hidden">Hier befinden Kontaktdaten unserer Firma </h2>
+
+        <a href="/about.html"> about us</a>
         <!--<section class="one_third">-->
         <!--<h3>Kontaktinformationen</h3>-->
         <!--<p><span class="cyan"><strong>Addresse:</strong></span> <br>-->
@@ -354,8 +365,10 @@
 <!-- Ende Footer -->
 
 <script src="scripts/jquery-3.1.1.min.js"></script>
+<!--
 <script src="scripts/particles.js"></script>
 <script src="scripts/app.js"></script>
+-->
 
 </body>
 </html>
