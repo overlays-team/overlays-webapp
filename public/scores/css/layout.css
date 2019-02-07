@@ -670,7 +670,7 @@ form#contact_form input[type="submit"]:hover, input[type="reset"]:hover {
 	width: 65.33%;
 }
 .one_half, .one_third, .two_third {
-	margin-left: 5%;
+	margin-right: 4%;
 	margin-bottom: 10%;
 	float: left;
 }
@@ -815,4 +815,3 @@ form#contact_form input#email {
  width: 150px;
 }
 }
-
