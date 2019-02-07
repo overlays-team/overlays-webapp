@@ -43,7 +43,7 @@
     configurable: false,
     value: async function() {
 
-      console.log("hello updateTable()");
+      //console.log("hello updateTable()");
 
       let highScoreTop3 = document.getElementById("highScoreTop3");
       let top1Name = highScoreTop3.rows[0].cells[1].firstChild;
@@ -53,19 +53,20 @@
       let top3Name = highScoreTop3.rows[2].cells[1].firstChild;
       let top3Score = highScoreTop3.rows[2].cells[2].firstChild;
 
-      console.log(top1Name.innerHTML);
-      console.log(top1Score.innerHTML);
+      //console.log(top1Name.innerHTML);
+      //console.log(top1Score.innerHTML);
 
       let highScore10 = document.getElementById("highScore10");
+      let highScoreAfter11 = document.getElementById("highScoreAfter11");
 
-      while(0<highScore10.rows.length){  //delete all rows
-        highScore10.deleteRow(0);
+      while(0<highScoreAfter11.rows.length){  //delete all rows
+        highScoreAfter11.deleteRow(0);
       }
 
       //fetch top score json from server
       try {
         const result = await this.getTopScores();
-        console.log(result);
+        //console.log(result);
 
         top1Name.innerHTML = result[0].player;
         top1Score.innerHTML = result[0].score;
@@ -74,10 +75,21 @@
         top3Name.innerHTML = result[2].player;
         top3Score.innerHTML = result[2].score;
 
-        for(var i=3; i<10; i++){
-          // add new row
-          let highScore10Row = highScore10.insertRow(-1);
+        for(var i=0; i<7; i++){
+          // +4 for table, +3 for json
+          let number = highScore10.rows[i].cells[0].firstChild;
+          let name = highScore10.rows[i].cells[1].firstChild;
+          let score = highScore10.rows[i].cells[2].firstChild;
 
+          number.innerHTML = i+4;
+          name.innerHTML = result[i+3].player;
+          score.innerHTML = result[i+3].score;
+        }
+
+          /*
+          // add new row
+          //let highScore10Row = highScore10.insertRow(-1);
+          1
           const thLeft = document.createElement('th');
           const h3Left = document.createElement('h3');
           h3Left.className = "left padding";
@@ -98,7 +110,8 @@
           h3Right.innerHTML = "777";
           thRight.appendChild(h3Right);
           highScore10Row.appendChild(thRight);
-        }
+          */
+
 
 
       } catch (error) {
@@ -175,18 +188,18 @@
 
   <!-- Beginn Infobox -->
   <section class="info">
-    <div id="particles-js"></div>
+      <div id="particles-js"></div>
 
-    <h2 class="hidden">Kurzer Infobereich der Webseite</h2>
+      <h2 class="hidden">Kurzer Infobereich der Webseite</h2>
 
-    <div class="container info minus-margin">
-      <header>
-        <h1 class="white">OVERLAYS HIGHSCORE</h1>
+      <div class="container info minus-margin">
+          <header>
+              <h1 class="white">OVERLAYS HIGHSCORE</h1>
 
-      </header>
-      <hr class="separator">
-    </div>
-    <!-- Ende Container -->
+          </header>
+          <hr class="separator">
+      </div>
+      <!-- Ende Container -->
   </section>
   <!-- Ende Infobox -->
 
@@ -223,75 +236,84 @@
             </table>
             <hr class="separatorDark">
 
-
-            <table style="width:100%" id="highScore10">
-            </table>
-
             <!--
-            <table style="width:100%" >
-            <tr>
+            <table style="width:100%" id="highScore10">
+          </table>
+        -->
+
+
+        <table style="width:100%" id="highScore10">
+          <tr>
             <th>
-            <h3 class="left padding">4.</h3>
+              <h3 class="left padding">4.</h3>
+            </th>
+            <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
+            <th><h3 class="right padding">82</h3></th>
+          </tr>
+          <tr>
+            <th>
+              <h3 class="left padding">5.</h3>
+            </th>
+            <td><h3 class="left padding padding-left">Jill</h3></td>
+            <td><h3 class="right padding">61</h3></td>
+          </tr>
+          <tr>
+            <th>
+              <h3 class="left padding">6.</h3>
+            </th>
+            <td><h3 class="left padding padding-left"> Eve</h3></td>
+            <td><h3 class="right padding">21</h3></td>
+          </tr>
+          <th>
+            <h3 class="left padding">7.</h3>
           </th>
-          <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
+          <th><h3 class="left padding padding-left"> Jimmy</h3></th>
           <th><h3 class="right padding">82</h3></th>
         </tr>
         <tr>
-        <th>
-        <h3 class="left padding">5.</h3>
-      </th>
-      <td><h3 class="left padding padding-left">Jill</h3></td>
-      <td><h3 class="right padding">61</h3></td>
-    </tr>
-    <tr>
-    <th>
-    <h3 class="left padding">6.</h3>
-  </th>
-  <td><h3 class="left padding padding-left"> Eve</h3></td>
-  <td><h3 class="right padding">21</h3></td>
-</tr>
-<th>
-<h3 class="left padding">7.</h3>
-</th>
-<th><h3 class="left padding padding-left"> Jimmy</h3></th>
-<th><h3 class="right padding">82</h3></th>
-</tr>
-<tr>
-<th>
-<h3 class="left padding">8.</h3>
-</th>
-<td><h3 class="left padding padding-left">Jill</h3></td>
-<td><h3 class="right padding">61</h3></td>
-</tr>
-<tr>
-<th>
-<h3 class="left padding">9.</h3>
-</th>
-<td><h3 class="left padding padding-left"> Eve</h3></td>
-<td><h3 class="right padding">21</h3></td>
-</tr>
-<tr>
-<th>
-<h3 class="left padding">10.</h3>
-</th>
-<td><h3 class="left padding padding-left"> Eve</h3></td>
-<td><h3 class="right padding">21</h3></td>
-</tr>
-</table>
--->
+          <th>
+            <h3 class="left padding">8.</h3>
+          </th>
+          <td><h3 class="left padding padding-left">Jill</h3></td>
+          <td><h3 class="right padding">61</h3></td>
+        </tr>
+        <tr>
+          <th>
+            <h3 class="left padding">9.</h3>
+          </th>
+          <td><h3 class="left padding padding-left"> Eve</h3></td>
+          <td><h3 class="right padding">21</h3></td>
+        </tr>
+        <tr>
+          <th>
+            <h3 class="left padding">10.</h3>
+          </th>
+          <td><h3 class="left padding padding-left"> Eve</h3></td>
+          <td><h3 class="right padding">21</h3></td>
+        </tr>
+      </table>
 
-<details>
-  <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
-  <table style="width:100%">
-    <th>
-      <h3 class="left padding">4.</h3>
-    </th>
-    <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
-    <th><h3 class="right padding">1082</h3></th>
-  </tr>
-</table>
-</details>
-</figcaption>
+
+      <details>
+        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+
+
+        <table style="width:100%" id="highScoreAfter11">
+        </table>
+
+
+        <table style="width:100%">
+          <th>
+            <h3 class="left padding">4.</h3>
+          </th>
+          <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
+          <th><h3 class="right padding">1082</h3></th>
+        </tr>
+      </table>
+
+
+    </details>
+  </figcaption>
 </figure>
 </div>
 </div>
