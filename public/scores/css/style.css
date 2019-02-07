@@ -92,15 +92,15 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	color: #2c3540;
 }
 h1 {
-	font-size: 4em;
+	font-size: 5.5em;
 	margin-bottom: 1em;
 }
 h2 {
-	font-size: 3em;
+	font-size: 5em;
 	margin-bottom:1em;
 }
 h3 {
-	font-size: 2em;
+	font-size: 4em;
 	margin-bottom: 1em;
 }
 h4 {
@@ -345,4 +345,3 @@ select {
 .list-style {
 	list-style: none;
 }
-
