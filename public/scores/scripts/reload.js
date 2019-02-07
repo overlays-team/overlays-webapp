@@ -1,4 +1,10 @@
-
+/*
+ * author: Shuya Fuchigami, 554092
+ *
+ * when page loaded, contents of tables are also loaded.
+ * and the renew itself every 3 seconds.
+ *
+ */
 
 window.addEventListener('load', function () {
   updateTopScoreTable();

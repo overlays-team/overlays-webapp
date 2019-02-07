@@ -46,7 +46,7 @@ class ScoresController < ApplicationController
   end
 
 
-  def index
+  def index_ruby
     ##return all
     ##@scores = Score.all
 
