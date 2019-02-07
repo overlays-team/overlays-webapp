@@ -28,444 +28,231 @@
 <!-- Ende Headbereich -->
 
 <body>
+  <!--
   <button type="button" onclick="updateTable()">DEBUG</button>
+  -->
 
-  <script>
-  //setInterval("updateTable()", 3000);
+  <!-- Header -->
+  <header id="header" class="shadow1">
 
-  setInterval(function(){
-    updateTopScoreTable();
-    updateNewestScoreTable();
-  },3000);
+    <h1 class="hidden">Overlays Reloaded</h1>
+    <h2 class="hidden">Highscoreseite für Overlays reloaded</h2>
+    <section class="container">
+      <h2 class="hidden">Wir befinden uns im Bereich Logo und Navigation</h2>
+    </section>
+    <!-- Ende Container -->
 
-
-  function updateTable(){
-    updateTopScoreTable();
-    updateNewestScoreTable();
-  }
-
-  Object.defineProperty(this, 'updateTopScoreTable', {
-    enumerable: false,
-    configurable: false,
-    value: async function() {
-
-      let highScoreTop3 = document.getElementById("highScoreTop3");
-      let top1Name = highScoreTop3.rows[0].cells[1].firstChild;
-      let top1Score = highScoreTop3.rows[0].cells[2].firstChild;
-      let top2Name = highScoreTop3.rows[1].cells[1].firstChild;
-      let top2Score = highScoreTop3.rows[1].cells[2].firstChild;
-      let top3Name = highScoreTop3.rows[2].cells[1].firstChild;
-      let top3Score = highScoreTop3.rows[2].cells[2].firstChild;
-      let highScore10 = document.getElementById("highScore10");
-      let highScoreAfter11 = document.getElementById("highScoreAfter11");
-
-      //delete all old rows
-      while(0<highScoreAfter11.rows.length){
-        highScoreAfter11.deleteRow(0);
-      }
-
-      try {
-        //fetch top score json from server
-        const result = await this.getTopScores();
-
-        //for 1. table in top scores
-        top1Name.innerHTML = result[0].player;
-        top1Score.innerHTML = result[0].score;
-        top2Name.innerHTML = result[1].player;
-        top2Score.innerHTML = result[1].score;
-        top3Name.innerHTML = result[2].player;
-        top3Score.innerHTML = result[2].score;
-
-        // for 2. table in top scores
-        // +4 for table, +3 for json
-        for(let i=0; i<7; i++){
-          let number = highScore10.rows[i].cells[0].firstChild;
-          let name = highScore10.rows[i].cells[1].firstChild;
-          let score = highScore10.rows[i].cells[2].firstChild;
-          number.innerHTML = i+4;
-          name.innerHTML = result[i+3].player;
-          score.innerHTML = result[i+3].score;
-        }
-
-        // for 3. table in top scores
-        // +10 for json
-        for (var i=10; i<result.length-10; i++){
-          // add new row
-          let highScoreAfter11Row = highScoreAfter11.insertRow(-1);
-
-          const thLeft = document.createElement('th');
-          const h3Left = document.createElement('h3');
-          h3Left.className = "left padding";
-          h3Left.innerHTML = (i+1) + ".";
-          thLeft.appendChild(h3Left);
-          highScoreAfter11Row.appendChild(thLeft);
-
-          const thCenter = document.createElement('th');
-          const h3Center = document.createElement('h3');
-          h3Center.className = "left padding padding-left";
-          h3Center.innerHTML = result[i].player;
-          thCenter.appendChild(h3Center);
-          highScoreAfter11Row.appendChild(thCenter);
-
-          const thRight = document.createElement('th');
-          const h3Right = document.createElement('h3');
-          h3Right.className = "right padding";
-          h3Right.innerHTML = result[i].score;
-          thRight.appendChild(h3Right);
-          highScoreAfter11Row.appendChild(thRight);
-        }
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  });
+    <!-- Responsive Menu -->
+    <!--<form id="responsive-menu" action="#" method="post">-->
+    <!--<select>-->
+    <!--<option value="">Navigation</option>-->
+    <!--<option value="index.html">Home</option>-->
+    <!--<option value="about.html">About</option>-->
+    <!--<option value="contact.html">Kontakt</option>-->
+    <!--</select>-->
+    <!--</form>-->
+  </header>
+  <!-- Ende Header -->
 
 
-  Object.defineProperty(this, 'updateNewestScoreTable', {
-    enumerable: false,
-    configurable: false,
-    value: async function() {
+  <!-- Beginn Infobox -->
+  <section class="info">
+    <div id="particles-js"></div>
 
-      let newestScoresTop3 = document.getElementById("newestScoresTop3");
-      let top1Rank = newestScoresTop3.rows[0].cells[0].firstChild;
-      let top1Name = newestScoresTop3.rows[0].cells[1].firstChild;
-      let top1Score = newestScoresTop3.rows[0].cells[2].firstChild;
+    <h2 class="hidden">Kurzer Infobereich der Webseite</h2>
 
-      let top2Rank = newestScoresTop3.rows[1].cells[0].firstChild;
-      let top2Name = newestScoresTop3.rows[1].cells[1].firstChild;
-      let top2Score = newestScoresTop3.rows[1].cells[2].firstChild;
+    <div class="container info minus-margin">
+      <header>
+        <h1 class="white">OVERLAYS HIGHSCORE</h1>
 
-      let top3Rank = newestScoresTop3.rows[2].cells[0].firstChild;
-      let top3Name = newestScoresTop3.rows[2].cells[1].firstChild;
-      let top3Score = newestScoresTop3.rows[2].cells[2].firstChild;
-      let newestScore10 = document.getElementById("newestScore10");
-      let newestScoreAfter11 = document.getElementById("newestScoreAfter11");
-
-      //delete all old rows
-      while(0<newestScoreAfter11.rows.length){
-        newestScoreAfter11.deleteRow(0);
-      }
-
-      try {
-        //fetch top score json from server
-        const result = await this.getNewestScores();
-
-        console.log(result);
-        console.log(top1Rank);
-
-        //for 1. table in top scores
-        top1Rank.innerHTML = result[0].rank;
-        top1Name.innerHTML = result[0].player;
-        top1Score.innerHTML = result[0].score;
-
-        top2Rank.innerHTML = result[1].rank;
-        top2Name.innerHTML = result[1].player;
-        top2Score.innerHTML = result[1].score;
-
-        top3Rank.innerHTML = result[2].rank;
-        top3Name.innerHTML = result[2].player;
-        top3Score.innerHTML = result[2].score;
-
-
-        // for 2. table in top scores
-        // +4 for table, +3 for json
-        for(let i=0; i<7; i++){
-          let number = newestScore10.rows[i].cells[0].firstChild;
-          let name = newestScore10.rows[i].cells[1].firstChild;
-          let score = newestScore10.rows[i].cells[2].firstChild;
-          number.innerHTML = result[i+3].rank;
-          name.innerHTML = result[i+3].player;
-          score.innerHTML = result[i+3].score;
-        }
-
-        // for 3. table in top scores
-        // +10 for json
-        for (var i=10; i<result.length-10; i++){
-          // add new row
-          let newestScoreAfter11Row = newestScoreAfter11.insertRow(-1);
-
-          const thLeft = document.createElement('th');
-          const h3Left = document.createElement('h3');
-          h3Left.className = "left padding";
-          h3Left.innerHTML = result[i].rank; + ".";
-          thLeft.appendChild(h3Left);
-          newestScoreAfter11Row.appendChild(thLeft);
-
-          const thCenter = document.createElement('th');
-          const h3Center = document.createElement('h3');
-          h3Center.className = "left padding padding-left";
-          h3Center.innerHTML = result[i].player;
-          thCenter.appendChild(h3Center);
-          newestScoreAfter11Row.appendChild(thCenter);
-
-          const thRight = document.createElement('th');
-          const h3Right = document.createElement('h3');
-          h3Right.className = "right padding";
-          h3Right.innerHTML = result[i].score;
-          thRight.appendChild(h3Right);
-          newestScoreAfter11Row.appendChild(thRight);
-        }
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  });
-
-
-  Object.defineProperty(this, 'getTopScores', {
-    enumerable: false,
-    configurable: false,
-    value: async function() {
-      const resource = "/scores_desc";
-
-      let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
-      if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
-
-      const result = await response.json();
-      return result;
-    }
-  });
-
-
-  Object.defineProperty(this, 'getNewestScores', {
-    enumerable: false,
-    configurable: false,
-    value: async function() {
-      const resource = "/scores_updated_at_desc_with_ranking";
-
-      let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
-      if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
-
-      const result = await response.json();
-      return result;
-    }
-  });
-
-</script>
-
-
-<!-- Header -->
-<header id="header" class="shadow1">
-
-  <h1 class="hidden">Overlays Reloaded</h1>
-  <h2 class="hidden">Highscoreseite für Overlays reloaded</h2>
-  <section class="container">
-    <h2 class="hidden">Wir befinden uns im Bereich Logo und Navigation</h2>
+      </header>
+      <hr class="separator">
+    </div>
+    <!-- Ende Container -->
   </section>
-  <!-- Ende Container -->
+  <!-- Ende Infobox -->
 
-  <!-- Responsive Menu -->
-  <!--<form id="responsive-menu" action="#" method="post">-->
-  <!--<select>-->
-  <!--<option value="">Navigation</option>-->
-  <!--<option value="index.html">Home</option>-->
-  <!--<option value="about.html">About</option>-->
-  <!--<option value="contact.html">Kontakt</option>-->
-  <!--</select>-->
-  <!--</form>-->
-</header>
-<!-- Ende Header -->
+  <section class="container fields">
+    <!-- LEFT TABLE -->
+    <div class="one_half">
+      <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
+      <div>
+        <figure class="shadow">
+          <figcaption>
+            <caption><h2 class="padding-top">Top Scores</h2></caption>
+            <hr class="separatorDark">
+            <table style="width:100%" id="highScoreTop3">
 
+              <tr>
+                <th>
+                  <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
+                </th>
+                <th><h3 class="left padding">Jimmy kann nix richtig</h3></th>
+                <th><h3 class="right padding">1082</h3></th>
+              </tr>
+              <tr>
+                <th>
+                  <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
+                </th>
+                <td><h3 class="left padding">Jill</h3></td>
+                <td><h3 class="right padding">1061</h3></td>
+              </tr>
+              <tr>
+                <th>
+                  <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                </th>
+                <td><h3 class="left padding">Eve</h3></td>
+                <td><h3 class="right padding">1001</h3></td>
+              </tr>
 
-<!-- Beginn Infobox -->
-<section class="info">
-  <div id="particles-js"></div>
+            </table>
+            <hr class="separatorDark">
+            <table style="width:100%" id="highScore10">
+              <tr>
+                <th><h3 class="left padding">4.</h3></th>
+                <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
+                <th><h3 class="right padding">82</h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">5.</h3></th>
+                <td><h3 class="left padding padding-left">Jill</h3></td>
+                <td><h3 class="right padding">61</h3></td>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">6.</h3></th>
+                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                <td><h3 class="right padding">21</h3></td>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">7.</h3></th>
+                <th><h3 class="left padding padding-left"> Jimmy</h3></th>
+                <th><h3 class="right padding">82</h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">8.</h3></th>
+                <td><h3 class="left padding padding-left">Jill</h3></td>
+                <td><h3 class="right padding">61</h3></td>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">9.</h3></th>
+                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                <td><h3 class="right padding">21</h3></td>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">10.</h3></th>
+                <td><h3 class="left padding padding-left"> Eve</h3></td>
+                <td><h3 class="right padding">21</h3></td>
+              </tr>
 
-  <h2 class="hidden">Kurzer Infobereich der Webseite</h2>
+            </table>
+            <details>
+              <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
 
-  <div class="container info minus-margin">
-    <header>
-      <h1 class="white">OVERLAYS HIGHSCORE</h1>
-
-    </header>
-    <hr class="separator">
-  </div>
-  <!-- Ende Container -->
-</section>
-<!-- Ende Infobox -->
-
-<section class="container fields">
-  <div class="one_half">
-    <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
-    <div>
-      <figure class="shadow">
-        <figcaption>
-          <caption><h2 class="padding-top">Top Scores</h2></caption>
-          <hr class="separatorDark">
-          <table style="width:100%" id="highScoreTop3">
-
-            <tr>
-              <th>
-                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
-              </th>
-              <th><h3 class="left padding">Jimmy kann nix richtig</h3></th>
-              <th><h3 class="right padding">1082</h3></th>
-            </tr>
-            <tr>
-              <th>
-                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
-              </th>
-              <td><h3 class="left padding">Jill</h3></td>
-              <td><h3 class="right padding">1061</h3></td>
-            </tr>
-            <tr>
-              <th>
-                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
-              </th>
-              <td><h3 class="left padding">Eve</h3></td>
-              <td><h3 class="right padding">1001</h3></td>
-            </tr>
-
-          </table>
-          <hr class="separatorDark">
-          <table style="width:100%" id="highScore10">
-            <tr>
-              <th><h3 class="left padding">4.</h3></th>
-              <th><h3 class="left padding padding-left">Jimmy der coole ist uncool</h3></th>
-              <th><h3 class="right padding">82</h3></th>
-            </tr>
-            <tr>
-              <th><h3 class="left padding">5.</h3></th>
-              <td><h3 class="left padding padding-left">Jill</h3></td>
-              <td><h3 class="right padding">61</h3></td>
-            </tr>
-            <tr>
-              <th><h3 class="left padding">6.</h3></th>
-              <td><h3 class="left padding padding-left"> Eve</h3></td>
-              <td><h3 class="right padding">21</h3></td>
-            </tr>
-            <th><h3 class="left padding">7.</h3></th>
-            <th><h3 class="left padding padding-left"> Jimmy</h3></th>
-            <th><h3 class="right padding">82</h3></th>
-          </tr>
-          <tr>
-            <th><h3 class="left padding">8.</h3></th>
-            <td><h3 class="left padding padding-left">Jill</h3></td>
-            <td><h3 class="right padding">61</h3></td>
-          </tr>
-          <tr>
-            <th><h3 class="left padding">9.</h3></th>
-            <td><h3 class="left padding padding-left"> Eve</h3></td>
-            <td><h3 class="right padding">21</h3></td>
-          </tr>
-          <tr>
-            <th><h3 class="left padding">10.</h3></th>
-            <td><h3 class="left padding padding-left"> Eve</h3></td>
-            <td><h3 class="right padding">21</h3></td>
-          </tr>
-
-        </table>
-        <details>
-          <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
-
-          <table style="width:100%" id="highScoreAfter11">
-          </table>
-        </details>
-      </figcaption>
-    </figure>
-  </div>
+              <table style="width:100%" id="highScoreAfter11">
+              </table>
+            </details>
+          </figcaption>
+        </figure>
+      </div>
 
 
-  <!-- RIGHT TABLE -->
-</div>
-<div class="one_half">
-  <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
-  <div>
-    <figure class="shadow">
-      <figcaption>
-        <caption><h2 class="padding-top">Newest Scores</h2></caption>
-        <hr class="separatorDark">
+      <!-- RIGHT TABLE -->
+    </div>
+    <div class="one_half">
+      <h2 class="hidden">Erste Box in der Mitte der Webseite mit den Highscores von Overlays</h2>
+      <div>
+        <figure class="shadow">
+          <figcaption>
+            <caption><h2 class="padding-top">Newest Scores</h2></caption>
+            <hr class="separatorDark">
 
-        <table style="width:100%" class="margin-top" id="newestScoresTop3">
-          <tr>
-            <th><h3 class="left padding">here rank 1</h3></th>
-            <th><h3 class="left padding  padding-left"> </h3></th>
-            <th><h3 class="right padding"> </h3></th>
-          </tr>
-          <tr>
-            <th style="padding-top: 7%"><h3 class="left padding"> .</h3></th>
-            <th><h3 class="left padding padding-left"> </h3></th>
-            <th><h3 class="right padding"> </h3></th>
-          </tr>
-          <tr>
-            <th style="padding-top: 6%"><h3 class="left padding"> .</h3></th>
-            <th><h3 class="left padding padding-left"> </h3></th>
-            <th><h3 class="right padding"> </h3></th>
-          </tr>
-        </table>
-        <hr class="separatorDark">
+            <table style="width:100%" class="margin-top" id="newestScoresTop3">
+              <tr>
+                <th><h3 class="left padding">here rank 1</h3></th>
+                <th><h3 class="left padding  padding-left"> </h3></th>
+                <th><h3 class="right padding"> </h3></th>
+              </tr>
+              <tr>
+                <th style="padding-top: 7%"><h3 class="left padding"> .</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding"> </h3></th>
+              </tr>
+              <tr>
+                <th style="padding-top: 6%"><h3 class="left padding"> .</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding"> </h3></th>
+              </tr>
+            </table>
+            <hr class="separatorDark">
 
-        <table style="width:100%" id="newestScore10">
-          <tr>
-            <th><h3 class="left padding">.</th>
-              <th><h3 class="left padding padding-left"> </h3></th>
-              <th><h3 class="right padding padding-left"> </h3></th>
-            </tr>
-            <tr>
-              <th><h3 class="left padding">.</th>
+            <table style="width:100%" id="newestScore10">
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
                 <th><h3 class="left padding padding-left"> </h3></th>
                 <th><h3 class="right padding padding-left"> </h3></th>
               </tr>
               <tr>
-                <th><h3 class="left padding">.</th>
-                  <th><h3 class="left padding padding-left"> </h3></th>
-                  <th><h3 class="right padding padding-left"> </h3></th>
-                </tr>
-                <tr>
-                  <th><h3 class="left padding">.</th>
-                    <th><h3 class="left padding padding-left"> </h3></th>
-                    <th><h3 class="right padding padding-left"> </h3></th>
-                  </tr>
-                  <tr>
-                    <th><h3 class="left padding">.</th>
-                      <th><h3 class="left padding padding-left"> </h3></th>
-                      <th><h3 class="right padding padding-left"> </h3></th>
-                    </tr>
-                    <tr>
-                      <th><h3 class="left padding">.</th>
-                        <th><h3 class="left padding padding-left"> </h3></th>
-                        <th><h3 class="right padding padding-left"> </h3></th>
-                      </tr>
-                      <tr>
-                        <th><h3 class="left padding">.</th>
-                          <th><h3 class="left padding padding-left"> </h3></th>
-                          <th><h3 class="right padding padding-left"> </h3></th>
-                        </tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
+              <tr>
+                <th><h3 class="left padding">.</h3></th>
+                <th><h3 class="left padding padding-left"> </h3></th>
+                <th><h3 class="right padding padding-left"> </h3></th>
+              </tr>
 
-                      </table>
+            </table>
 
-                      <details>
-                        <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
+            <details>
+              <summary class="downArrow bounce list-style"><img width="40" height="40" alt="arrow icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" /></summary>
 
-                        <table style="width:100%" id="newestScoreAfter11">
-                        </table>
+              <table style="width:100%" id="newestScoreAfter11">
+              </table>
 
-                      </details>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </section>
-            <!-- end container -->
+            </details>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- end container -->
 
-            <!-- Footer  -->
-            <section class="footer">
-              <h2 class="hidden">Hier finden wir den Fußbereich</h2>
-              <section class="container">
-                <h2 class="hidden">Hier befinden sich Kontaktdaten unserer Firma </h2>
-              </section>
-              <p class="copyright">2018 Copyright &copy;Overlays Reloaded All rights reserved. </p>
-            </section>
-            <!-- Ende Footer -->
+  <!-- Footer  -->
+  <section class="footer">
+    <h2 class="hidden">Hier finden wir den Fußbereich</h2>
+    <section class="container">
+      <h2 class="hidden">Hier befinden sich Kontaktdaten unserer Firma </h2>
+    </section>
+    <p class="copyright">2018 Copyright &copy;Overlays Reloaded All rights reserved. </p>
+  </section>
+  <!-- Ende Footer -->
 
-            <script src="scripts/jquery-3.1.1.min.js"></script>
-            <script src="scripts/particles.js"></script>
-            <script src="scripts/app.js"></script>
-            <!--
-            <script src="scripts/reload.js"></script>
-          -->
+  <script src="scripts/jquery-3.1.1.min.js"></script>
+  <script src="scripts/particles.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/reload.js"></script>
 
-        </body>
-        </html>
+
+</body>
+</html>
