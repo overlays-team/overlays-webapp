@@ -40,38 +40,60 @@
         //document.getElementById('eid_date').innerHTML = Date();
         console.log("hello updateTable()");
 
-        /*
-        var lyricsText = document.getElementById("eid_date");
 
-        const artist = ""
-        const trackName = ""
+        //getTopScores();
+
+        //var lyricsText = document.getElementById("eid_date");
+
         try {
-          const lyrics = await this.queryLyrics(artist, trackName);
-          console.log(lyrics);
+          const result = await this.getTopScores();
+          console.log(result);
           //artistAndTrack.innerHTML = "Lyrics for " + artist + ", " + trackName;
           //lyricsText.value = lyrics.result.track.text;
-          lyricsText.innerHTML  = "Lyrics for " + artist + ", " + trackName;
+
+          //lyricsText.innerHTML  = "Lyrics for " + artist + ", " + trackName;
         } catch (error) {
           this.displayError(error);
+
           //lyricsText.value = "no such song found in database";
-          lyricsText.innerHTML  = "no such song found in database";
+          //lyricsText.innerHTML  = "no such song found in database";
         }
-        */
+
       }
 
 
-      Object.defineProperty(ServerRadioController.prototype, 'queryLyrics', {
+      async function getTopScoresOld(){
+        console.log("hello getTopScores");
+
+        //const resource = "https://overlays-webapp.herokuapp.com/scores_desc";
+        const resource = "/scores_desc";
+
+        let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
+        if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
+
+        const result = await response.json();
+        console.log(result);
+        return result;
+      }
+
+
+      Object.defineProperty(this, 'getTopScores', {
         enumerable: false,
         configurable: false,
-        value: async function(artist,trackName) {
-          const apikey = "9rKTnZBFvEFwSc6eZHA7a7G7mXsrMyIgu7R4L015Lzv9MG8Af4J3OoI0TJ8VB8xs";
-          const resource = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + trackName + "?apikey=" + apikey;
+        value: async function() {
+        //value: async function(artist,trackName) {
+          //const apikey = "9rKTnZBFvEFwSc6eZHA7a7G7mXsrMyIgu7R4L015Lzv9MG8Af4J3OoI0TJ8VB8xs";
+          //const resource = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + trackName + "?apikey=" + apikey;
+
+          console.log("hello getTopScores");
+          const resource = "/scores_desc";
 
           let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
           if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
 
-          const lyrics = await response.json();
-          return lyrics;
+          const result = await response.json();
+          console.log(result);
+          return result;
         }
       });
 
@@ -345,7 +367,7 @@
     <section class="container">
         <h2 class="hidden">Hier befinden Kontaktdaten unserer Firma </h2>
 
-        <a href="/about.html"> about us</a>
+        <a href="about.html"> about us</a>
         <!--<section class="one_third">-->
         <!--<h3>Kontaktinformationen</h3>-->
         <!--<p><span class="cyan"><strong>Addresse:</strong></span> <br>-->
