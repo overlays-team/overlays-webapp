@@ -16,9 +16,9 @@
 
     <!-- ======= CSS ======= -->
 
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/grid.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/scores/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/scores/css/grid.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/scores/css/layout.css" type="text/css" media="all">
 
     <!-- ======= Google Fonts ====== -->
 
@@ -78,21 +78,21 @@
                     <table style="width:100%">
                         <tr>
                             <th>
-                                <img class="left padding" src="images/crown_70px.png" alt="image der goldenen Krone"/>
+                                <img class="left padding" src="scores/images/crown_70px.png" alt="image der goldenen Krone"/>
                             </th>
                             <th><h3 class="left padding"><%= @scores[0].player %></h3></th>
                             <th><h3 class="right padding"><%= @scores[0].score %></h3></th>
                         </tr>
                         <tr>
                             <th>
-                                <img class="left padding" src="images/silver_crown_70px.png" alt="image der silbernen Krone"/>
+                                <img class="left padding" src="scores/images/silver_crown_70px.png" alt="image der silbernen Krone"/>
                             </th>
                             <td><h3 class="left padding"><%= @scores[1].player %></h3></td>
                             <td><h3 class="right padding"><%= @scores[1].score %></h3></td>
                         </tr>
                         <tr>
                             <th>
-                                <img class="left padding" src="images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
+                                <img class="left padding" src="scores/images/bronze_crown_70px.png" alt="image der bronzenen Krone"/>
                             </th>
                             <td><h3 class="left padding"><%= @scores[2].player %></h3></td>
                             <td><h3 class="right padding"><%= @scores[2].score %></h3></td>
@@ -145,14 +145,14 @@
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[0][:score] %></h3></th>
                         </tr>
                         <tr>
-                            <th style="padding-top: 7%">
+                            <th style="padding-top: 12px">
                                 <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[1][:rank] %>.</h3>
                             </th>
                             <th><h3 class="left padding padding-left"><%= @scores_updated_at_desc_with_ranking[1][:player] %></h3></th>
                             <th><h3 class="right padding"><%= @scores_updated_at_desc_with_ranking[1][:score] %></h3></th>
                         </tr>
                         <tr>
-                            <th style="padding-top: 6%">
+                            <th style="padding-top: 12px">
                                 <h3 class="left padding"><%= @scores_updated_at_desc_with_ranking[2][:rank] %>.</h3>
                             </th>
                             <th><h3 class="left padding padding-left"><%= @scores_updated_at_desc_with_ranking[2][:player] %></h3></th>
@@ -180,7 +180,7 @@
                                   <th>
                                       <h3 class="left padding"><%= score[:rank] %>.</h3>
                                   </th>
-                                  <th><h3 class="left padding padding-left"><%= score[:player] %>l</h3></th>
+                                  <th><h3 class="left padding padding-left"><%= score[:player] %></h3></th>
                                   <th><h3 class="right padding padding-left"><%= score[:score] %></h3></th>
                               </tr>
                               <% end %>
@@ -203,10 +203,10 @@
 </section>
 <!-- Ende Footer -->
 
-<script src="scripts/jquery-3.1.1.min.js"></script>
-<script src="scripts/particles.js"></script>
-<script src="scripts/app.js"></script>
-<script src="scripts/reload.js"></script>
+<script src="scores/scripts/jquery-3.1.1.min.js"></script>
+<script src="scores/scripts/particles.js"></script>
+<script src="scores/scripts/app.js"></script>
+<script src="scores/scripts/reload_ruby.js"></script>
 
 </body>
 </html>
