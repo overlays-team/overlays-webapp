@@ -137,7 +137,7 @@ Object.defineProperty(this, 'updateNewestScoreTable', {
     }
 
     try {
-      //fetch top score json from server
+      //fetch newest score json from server
       const result = await this.getNewestScores();
 
       console.log(result);
@@ -209,6 +209,7 @@ Object.defineProperty(this, 'getTopScores', {
   value: async function() {
     const resource = "/scores_desc";
 
+    //fetch high score json from server
     let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
     if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
 
@@ -224,6 +225,7 @@ Object.defineProperty(this, 'getNewestScores', {
   value: async function() {
     const resource = "/scores_updated_at_desc_with_ranking";
 
+    //fetch newest score json from server
     let response = await fetch(resource, { method: 'GET', headers: {"Accept": "application/json"} } );
     if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
 
