@@ -19,12 +19,15 @@ window.location.reload(true);
 }
 */
 
+
 //automatic reloading for 3000ms
+//disabled for long term use. showtime is over.
+/*
 setInterval(function(){
   updateTopScoreTable();
   updateNewestScoreTable();
 }, 30000);
-
+*/
 
 //function for debug
 function updateTable(){
