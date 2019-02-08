@@ -23,7 +23,7 @@ window.location.reload(true);
 setInterval(function(){
   updateTopScoreTable();
   updateNewestScoreTable();
-}, 10000);
+}, 30000);
 
 
 //function for debug
