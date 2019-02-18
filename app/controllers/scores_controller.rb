@@ -86,13 +86,14 @@ class ScoresController < ApplicationController
     @scores_updated_at_desc = Score.order("updated_at DESC")
     @scores_updated_at_desc_with_ranking = []
     @scores_updated_at_desc.each_with_index do |s_up,i|
-      puts "======"
-      puts "s_up.id: " + s_up.id.to_s + ", " + i.to_s
-      puts "------"
+      #puts "======"
+      #puts "s_up.id: " + s_up.id.to_s + ", " + i.to_s
+      #puts "------"
       @scores_desc.each_with_index do |s_d,j|
-        puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
+        #puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
         if s_up.id.to_i == s_d.id.to_i then ## to_iしないと、.idだけでは、tableのrow列そのものを引っ張ってきてしまう。
           puts "MATCH!!"
+          puts j+1
           id = s_d.id
           sc = s_d.score
           p = s_d.player
