@@ -7,6 +7,7 @@ class ScoresController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   ## GET /scores/new
+  ## page for inputing new score
   def new
     @score = Score.new
   end
@@ -22,22 +23,23 @@ class ScoresController < ApplicationController
 
     if @score.save  ## if successed, save to db
 
-      ##return html
+      ##return html site
       #redirect_to @score     ##redirect to newly added score
       ##or
       redirect_to scores_debug_path  ##redirect to score list
 
       ##or return json
       #render json: @score, status: :created, location: @score
-    else
 
-      ##return html
+    else ## if failed, try again
+
+      ##return html site
+      ##this calls def new
       render "new"
 
       ##or return json
       #render json: @score.errors, status: :unprocessable_entity
     end
-
   end
 
 
@@ -45,12 +47,12 @@ class ScoresController < ApplicationController
     @score = Score.find(params[:id])
   end
 
-
+  ## method for the old version
   def index_ruby
-    ##return all
+    ##return all entries
     ##@scores = Score.all
 
-    ##return all, sorted
+    ##return all entries, sorted
     ##@scores = Score.order :score ##ascendent
     @scores = Score.order("score DESC") ##descendent
 
@@ -72,7 +74,7 @@ class ScoresController < ApplicationController
   end
 
 
-  ##produce json for newly added socre with ranking
+  ##produce json for socre list with ranking
   def scores_updated_at_desc_with_ranking
     @scores = Score.order("score DESC") ##descendent
     create_scores_updated_at_desc_with_ranking()
@@ -80,7 +82,7 @@ class ScoresController < ApplicationController
   end
 
 
-  ##create newly added socre list with ranking
+  ##create score list with ranking
   def create_scores_updated_at_desc_with_ranking
     @scores_desc = @scores
     @scores_updated_at_desc = Score.order("updated_at DESC")
@@ -91,9 +93,9 @@ class ScoresController < ApplicationController
       #puts "------"
       @scores_desc.each_with_index do |s_d,j|
         #puts "s_d.id::" + s_d.id.to_s + ", s_up.id:" + s_up.id.to_s + ", jPos:" + j.to_s
-        if s_up.id.to_i == s_d.id.to_i then ## to_iしないと、.idだけでは、tableのrow列そのものを引っ張ってきてしまう。
-          puts "MATCH!!"
-          puts j+1
+        if s_up.id.to_i == s_d.id.to_i then ## must do to_i ohtherwise it returns row in table itself
+          #puts "MATCH!!"
+          #puts j+1
           id = s_d.id
           sc = s_d.score
           p = s_d.player
