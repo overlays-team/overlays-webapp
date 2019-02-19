@@ -1,7 +1,7 @@
 /*
  * author: Shuya Fuchigami, 554092
  *
- * when page loaded, contents of tables are also loaded.
+ * when page loaded, contents of tables are loaded at the same time.
  * and the renew itself every 3 seconds.
  *
  */
@@ -10,14 +10,6 @@ window.addEventListener('load', function () {
   updateTopScoreTable();
   updateNewestScoreTable();
 });
-
-
-//reload whole page
-/*
-function doReloadIgnoreCache() {
-window.location.reload(true);
-}
-*/
 
 
 //automatic reloading for 3000ms
@@ -29,7 +21,8 @@ setInterval(function(){
 }, 30000);
 */
 
-//function for debug
+
+//function for debug button
 function updateTable(){
   updateTopScoreTable();
   updateNewestScoreTable();
