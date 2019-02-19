@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  ## add extra route (old version)
-  ##get "scores/index_ruby.html", to: "scores#index"
+  ## add extra route for the score board with embedded Ruby implementation
+  get "scores/index_ruby.html", to: "scores#index_ruby"
 
   #create route for scores automatically
   resources :scores
