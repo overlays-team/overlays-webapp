@@ -1,7 +1,7 @@
 /* CSS Document */
 
 /*
- * Infoseite
+ * Overlays Reloaded
  * Copyright 2018, Sebastian Braun
 */
 
@@ -34,7 +34,7 @@ hr.separator {
 	height: 1px;
 	margin: 40px 0;
 
-	/* Darstellung hr (engl. hr = horizontal ruler = horizontale Linie)im Browser */
+	/* hr (engl. hr = horizontal ruler */
 
 	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)); /* (Safarie - OSX) */
 	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0));	/* (Firefox) */
@@ -45,8 +45,6 @@ hr.separator {
 hr.separatorDark {
 	height: 1px;
 	margin: 40px 0;
-
-	/* Darstellung hr (engl. hr = horizontal ruler = horizontale Linie)im Browser */
 
 	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgb(47, 47, 47), rgba(0, 0, 0, 0)); /* (Safarie - OSX) */
 	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgb(47, 47, 47), rgba(0, 0, 0, 0));	/* (Firefox) */
@@ -107,13 +105,6 @@ hr.separator2 {
 	float: right;
 }
 
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
 .minus-margin {
 	margin-top: -50%;
 }
