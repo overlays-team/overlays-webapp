@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
 
 ### this list order is important. Was oben steht hat mehr prioritaet.
+### For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get 'welcome/index'
-  root 'welcome#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #get 'welcome/index'   ## created by default. http://hostname:port/welcome/index
+  root 'welcome#index'    ##created by default.  redirect / to index in welcome_controller.rb
 
+  ## add extra route for the score board with embedded Ruby implementation
+  get "scores/index_ruby.html", to: "scores#index_ruby"
 
-  ## add extra route (old version)
-  ##get "scores/index_ruby.html", to: "scores#index"
-
-  #create route for scores automatically
+  ##create route for scores automatically
   resources :scores
 
   ## add extra route

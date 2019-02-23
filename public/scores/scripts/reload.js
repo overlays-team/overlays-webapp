@@ -1,41 +1,42 @@
 /*
  * author: Shuya Fuchigami, 554092
  *
- * when page loaded, contents of tables are also loaded.
- * and the renew itself every 3 seconds.
+ * Javascript for dynamic table contants update
  *
  */
 
+
+// update contents once at page load
 window.addEventListener('load', function () {
   updateTopScoreTable();
   updateNewestScoreTable();
 });
 
 
-//reload whole page
 /*
-function doReloadIgnoreCache() {
-window.location.reload(true);
-}
-*/
-
-
-//automatic reloading for 3000ms
-//disabled for long term use. showtime is over.
-/*
+ * automatic reloading for every 30000ms
+ * max repetition is limited to 10 times after the showtime
+ * for server load reduction
+ */
+const maxRepetition = 10;
+let counter = 0;
 setInterval(function(){
-  updateTopScoreTable();
-  updateNewestScoreTable();
+  if (counter < maxRepetition){
+    updateTopScoreTable();
+    updateNewestScoreTable();
+    counter++;
+  }
 }, 30000);
-*/
 
-//function for debug
+
+//function for debug button
 function updateTable(){
   updateTopScoreTable();
   updateNewestScoreTable();
 }
 
 
+//update contens for top score on the page
 Object.defineProperty(this, 'updateTopScoreTable', {
   enumerable: false,
   configurable: false,
@@ -114,6 +115,7 @@ Object.defineProperty(this, 'updateTopScoreTable', {
 });
 
 
+//update contens for newest score on the page
 Object.defineProperty(this, 'updateNewestScoreTable', {
   enumerable: false,
   configurable: false,
@@ -206,6 +208,7 @@ Object.defineProperty(this, 'updateNewestScoreTable', {
 });
 
 
+//retrival of to score data from the server
 Object.defineProperty(this, 'getTopScores', {
   enumerable: false,
   configurable: false,
@@ -220,7 +223,7 @@ Object.defineProperty(this, 'getTopScores', {
   }
 });
 
-
+//retrival of to newest score data from the server
 Object.defineProperty(this, 'getNewestScores', {
   enumerable: false,
   configurable: false,

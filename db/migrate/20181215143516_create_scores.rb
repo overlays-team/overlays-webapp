@@ -3,7 +3,6 @@ class CreateScores < ActiveRecord::Migration[5.2]
     create_table :scores do |t|
       t.integer :score
       t.string :player
-
       t.timestamps
     end
   end
